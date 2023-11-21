@@ -33,18 +33,18 @@ $addblockbutton = $OUTPUT->addblockbutton();
 $courseindexopen = false;
 $blockdraweropen = false;
 
-if (defined('BEHAT_SITE_RUNNING')) {
+if (defined('BEHAT_SITE_RUNNING') && get_user_preferences('behat_keep_drawer_closed') != 1) {
     $blockdraweropen = true;
 }
 
-$extraclasses = ['uses-drawers'];
+
 
 $blockshtml = $OUTPUT->blocks('side-pre');
 $hasblocks = (strpos($blockshtml, 'data-block=') !== false || !empty($addblockbutton));
-$headerblockshtml = $OUTPUT->blocks('full-t');
+$headerblockshtml = $OUTPUT->blocks('fullwidth-top');
 $hasheaderblocks = (strpos($headerblockshtml, 'data-block=') !== false || !empty($addblockbutton));
 
-$footerblockshtml = $OUTPUT->blocks('full-b');
+$footerblockshtml = $OUTPUT->blocks('fullwidth-bottom');
 $hasfooterblocks = (strpos($footerblockshtml, 'data-block=') !== false || !empty($addblockbutton));
 
 $bodyattributes = $OUTPUT->body_attributes($extraclasses);
@@ -77,10 +77,6 @@ $templatecontext = [
     'output' => $OUTPUT,
     'sidepreblocks' => $blockshtml,
     'hasblocks' => $hasblocks,
-    'headerblocks' => $headerblockshtml,
-    'hasheaderblocks' => $hasheaderblocks,
-    'hasfooterblocks' => $hasfooterblocks,
-    'footerblocks' => $footerblockshtml,
     'bodyattributes' => $bodyattributes,
     'courseindexopen' => $courseindexopen,
     'blockdraweropen' => $blockdraweropen,
@@ -95,7 +91,11 @@ $templatecontext = [
     'hasregionmainsettingsmenu' => !empty($regionmainsettingsmenu),
     'overflow' => $overflow,
     'headercontent' => $headercontent,
-    'addblockbutton' => $addblockbutton
+    'addblockbutton' => $addblockbutton,
+    'headerblocks' => $headerblockshtml,
+    'hasheaderblocks' => $hasheaderblocks,
+    'hasfooterblocks' => $hasfooterblocks,
+    'footerblocks' => $footerblockshtml,
 ];
 
 echo $OUTPUT->render_from_template('theme_ucl/layout/mydashboard', $templatecontext);

@@ -24,6 +24,10 @@
 
 $string['pluginname'] = 'UCL';
 
+// Block regions.
+$string['region-fullwidth-bottom'] = 'Bottom - full width';
+$string['region-fullwidth-top'] = 'Top - full width';
+
 // Settings page strings.
 $string['footer'] = 'Footer';
 $string['ssoenableredirecttoaad'] = 'Redirect to SSO for login';

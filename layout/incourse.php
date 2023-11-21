@@ -18,7 +18,7 @@
  * INcourse layout for UCL theme.
  *
  * @package   theme_ucl
- * @copyright 2021 Bas Brands
+ * @copyright 2023 Stuart Lamour
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 
@@ -30,9 +30,9 @@ require_once($CFG->dirroot . '/course/lib.php');
 // Add block button in editing mode.
 $addblockbutton = $OUTPUT->addblockbutton();
 
-$courseindexopen = false;
-$blockdraweropen = false;
-
+if (isloggedin()) {
+    $courseindexopen = (get_user_preferences('drawer-open-index', true) == true);
+}
 
 if (defined('BEHAT_SITE_RUNNING') && get_user_preferences('behat_keep_drawer_closed') != 1) {
     $blockdraweropen = true;
@@ -52,15 +52,17 @@ $courseindex = core_course_drawer();
 if (!$courseindex) {
     $courseindexopen = false;
 }
-// UCL specific.
+
+// UCL specific change.
 // Fake blocks check.
+// We output fake blocks on the page, so remove blocks drawer.
 $hasfakeblocks = strpos($blockshtml, 'data-block="_fake"') !== false;
 if ($hasfakeblocks) {
     $hasblocks = false;
+    $blockdraweropen = false;
 }
 
 $bodyattributes = $OUTPUT->body_attributes($extraclasses);
-$forceblockdraweropen = $OUTPUT->firstview_fakeblocks();
 
 $secondarynavigation = false;
 $overflow = '';
@@ -89,7 +91,6 @@ $templatecontext = [
     'output' => $OUTPUT,
     'sidepreblocks' => $blockshtml,
     'hasblocks' => $hasblocks,
-    'hasfakeblocks' => $hasfakeblocks,
     'bodyattributes' => $bodyattributes,
     'courseindexopen' => $courseindexopen,
     'blockdraweropen' => $blockdraweropen,
@@ -104,7 +105,8 @@ $templatecontext = [
     'hasregionmainsettingsmenu' => !empty($regionmainsettingsmenu),
     'overflow' => $overflow,
     'headercontent' => $headercontent,
-    'addblockbutton' => $addblockbutton
+    'addblockbutton' => $addblockbutton,
+    'hasfakeblocks' => $hasfakeblocks
 ];
 
 echo $OUTPUT->render_from_template('theme_ucl/layout/incourse', $templatecontext);

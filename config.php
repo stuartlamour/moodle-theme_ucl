@@ -51,14 +51,14 @@ $THEME->layouts = array(
     // The site home page.
     'frontpage' => [
         'file' => 'frontpage.php',
-        'regions' => ['full-t'],
-        'defaultregion' => 'full-t',
+        'regions' => ['fullwidth-top'],
+        'defaultregion' => 'fullwidth-top',
         'options' => ['nonavbar' => true],
     ],
-    // dashboard page.
+    // Dashboard page.
     'mydashboard' => [
         'file' => 'mydashboard.php',
-        'regions' => ['full-t', 'full-b', 'side-pre'],
+        'regions' => ['fullwidth-top', 'fullwidth-bottom', 'side-pre'],
         'defaultregion' => 'side-pre',
         'options' => ['nonavbar' => true, 'langmenu' => true],
     ],
@@ -69,7 +69,7 @@ $THEME->layouts = array(
         'defaultregion' => 'side-pre',
         'options' => ['langmenu' => true],
     ],
-    // Part of course, typical for modules - default page layout if $cm specified in require_login().
+    // Part of course, typical for modules.
     'incourse' => array(
         'file' => 'incourse.php',
         'regions' => array('side-pre'),
