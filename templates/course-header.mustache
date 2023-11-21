@@ -1,0 +1,172 @@
+{{!
+    This file is part of Moodle - http://moodle.org/
+
+    Moodle is free software: you can redistribute it and/or modify
+    it under the terms of the GNU General Public License as published by
+    the Free Software Foundation, either version 3 of the License, or
+    (at your option) any later version.
+
+    Moodle is distributed in the hope that it will be useful,
+    but WITHOUT ANY WARRANTY; without even the implied warranty of
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+    GNU General Public License for more details.
+
+    You should have received a copy of the GNU General Public License
+    along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
+}}
+<style>
+/*
+#course-header-bg::before {
+	content: " ";
+	position: absolute;
+	left: 0;
+	top: 0;
+	width: 100%;
+	height: 100%;
+    z-index: 0;
+	background-image: url("{{{courseimage}}}");
+	background-size: cover;
+	background-repeat: no-repeat;
+    background-position: center;
+	filter: blur(2rem)  opacity(90%);;
+    overflow: hidden;
+}
+#course-header-bg {
+    overflow: hidden;
+}
+#page-header {
+    background-color: white;
+    position: relative;
+    box-shadow: 0.3em 0.3em 0 0 rgba(0, 0, 0, 0.4);
+}
+*/
+</style>
+
+{{! Course header template. }}
+<div id="course-header-bg" class="full-width p-4">
+
+<div id="page-header" class="container">
+    <div class="row animate-enter">
+
+        {{#courseimage}}
+        <div class="col-lg-6 bg-cover" style="background-image: url('{{{courseimage}}}'); min-height: 280px;">
+        </div>
+        {{/courseimage}}
+
+        <div class="col-lg p-3 p-lg-5">
+
+
+
+            <small>{{{coursecat}}}</small>
+            <h1>{{{coursename}}}</h1>
+            <div class="line-clamp-3">{{{coursesummary}}}</div>
+
+            {{#hasprogress}}
+            <div id="page-header-course-progress" class="mt-2">
+                <small class="small"><span id="page-header-course-progress-value">0</span>% {{#str}} complete {{/str}}</small>
+                <div class="progress my-2">
+                    <div class="progress-bar bg-success" aria-label="{{#str}} progress {{/str}}" role="progressbar" aria-valuenow="0" style="width: 0%" aria-valuemin="0" aria-valuemax="100"></div>
+                </div>
+            </div>
+            {{/hasprogress}}
+
+            {{! Bulk edit button. }}
+            {{#headeractions}}
+                <div class="header-action">{{{.}}}</div>
+            {{/headeractions}}
+
+            {{^visible}}
+                <span class="badge badge-pill badge-warning">{{#str}} hiddenfromstudents {{/str}}</span><br>
+            {{/visible}}
+
+        </div>
+
+    </div>
+
+</div>
+</div>
+{{#hasprogress}}
+{{#js}}
+require(['jquery'], function($) {
+
+    // Course progress.
+    setTimeout(() => {
+            // Initial progress.
+            update_course_progress();
+            // Select the node that will be observed for mutations.
+            const targetNode = document.getElementById('courseindex-content');
+            // Config.
+            const config = { attributes: true, childList: true, subtree: true };
+
+            // Callback.
+            const callback = function(mutationList, observer) {
+                // Use traditional 'for loops' for IE 11
+                for(const mutation of mutationList) {
+                    if (mutation.type === 'childList') {
+                        update_course_progress();
+                    }
+                }
+            };
+
+            // Create observer instance linked to callback function.
+            const observer = new MutationObserver(callback);
+
+            // Start observing.
+            observer.observe(targetNode, config);
+    }, 500);
+
+    function update_course_progress () {
+        const $progressbar = $('#page-header-course-progress .progress-bar');
+        $courseindex = $('#courseindex-content');
+        const cancomplete = $($courseindex).find('.completioninfo:not(.completion_none)').length;
+        const complete = $($courseindex).find('.completion_complete').length;
+        /* TODO - moodle rounds halfs down. */
+        const percentage = Math.floor((complete / cancomplete) * 100);
+
+        // Get current progress.
+        current = $('#page-header-course-progress-value').html();
+        if (percentage != current) {
+            if (cancomplete != 0) {
+                // Update progress.
+                $($progressbar).animate({
+                    width: percentage+"%"
+                }, {duration: 20, easing:"linear" });
+                $($progressbar).attr('aria-valuenow', percentage);
+
+                // Update progress text.
+                // Increase or decrease.
+                if (current !==  Math.round(percentage)) {
+                    if (Math.round(percentage) > current) {
+                        increaseprogress(current, percentage);
+                    }
+                    else {
+                        decreaseprogress(current, percentage);
+                    }
+                }
+            }
+        }
+    }
+
+    function increaseprogress (start, end) {
+        var interval = setInterval(function () {
+            $('#page-header-course-progress-value').html(start++);
+            if (start > end) {
+                $('#page-header-course-progress-value').html(end);
+                clearInterval(interval); // Exit.
+            }
+        }, 20); // Timeing value.
+    }
+
+    function decreaseprogress (start, end) {
+        var interval = setInterval(function () {
+            $('#page-header-course-progress-value').html(start--);
+            if (start < end) {
+                $('#page-header-course-progress-value').html(end);
+                clearInterval(interval); // Exit.
+            }
+        }, 20); // Timeing value.
+    }
+});
+{{/js}}
+{{/hasprogress}}
+

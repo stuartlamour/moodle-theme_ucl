@@ -1,0 +1,148 @@
+/*
+* UCL block_timeline scss.
+*/
+
+/* Timeline block. */
+.block_timeline.block {
+
+    .card-body {
+        padding: 0 !important;
+    }
+
+    /* Title. */
+    .card-title {
+        &:after {
+            content: "Deadlines from your courses.";
+            display: block;
+            padding: 0.5rem 0;
+            font-weight: normal;
+            font-size: 1rem;
+       }
+    }
+
+    /* Card content. */
+    .card-text {
+        margin-top: 0 !important;
+
+        /* Remove background colours. */
+        .list-group-item {
+            background-color: transparent !important;
+        }
+    }
+
+    /* Filters/dropdowns - N.B. no class in template :( */
+    .block-timeline .pb-3.px-2.border-bottom {
+        display: none;
+    }
+    .block-timeline .row.no-gutters {
+
+        /* Use btn-link for filter buttons. */
+        .btn-outline-secondary {
+            @extend .btn-link;
+            border-color: transparent !important;
+            background-color: transparent !important;
+        }
+
+        /* Hide tick in select options. */
+        .dropdown-item:before {
+            display: none;
+        }
+
+        /* Hide search. */
+        .simplesearchform {
+            display: none;
+        }
+    }
+
+    /* Edit controlls. */
+    /* Set so they are clickable, as overlaped by other content. */
+    .block-controls {
+        position: relative;
+        z-index: 999;
+    }
+
+    /* Create a left line - the timeline. */
+    /* By date view. */
+    div[data-region="view-dates"] {
+        border-left: 2px solid $body-color;
+        padding-left: 1rem;
+        margin-left: 1rem;
+    }
+
+    /* By courses view. */
+    div[data-region="course-events-container"] {
+
+        div[data-region="event-list-content"] {
+            border-left: 2px solid $body-color;
+            padding-left: 1rem;
+            margin-left: 1rem;
+
+        }
+    }
+
+    /* Dates. */
+    div[data-region="event-list-content-date"] {
+        position: relative;
+
+        /* Add dots for timeline. */
+        &:before {
+            content: "";
+            background-color: $bright-blue;
+            width: 24px;
+            height: 24px;
+            display: block;
+            position: absolute;
+            left: -1.8rem; // MAGIC NUMBER - Place on the timeline line (border).
+            border-radius: 100%;
+        }
+
+        /* Normalise font sizes. */
+        h5 {
+            font-size: 1rem !important;
+            margin-left: 1rem;
+        }
+    }
+
+    /* Activity lists. */
+    .timeline-event-list-item {
+        /* Remove boxes and padding. */
+        border: none !important;
+        background-color: transparent;
+        margin-left: 2rem;
+
+        /* Activity details. */
+        .event-name-container {
+            margin-left: 1rem;
+        }
+
+        /* Don't truncate the text. */
+        .text-truncate {
+            white-space: normal;
+        }
+
+        /* Activity buttons. */
+        .event-action {
+            display: none;
+        }
+        /* Activity icons. */
+        .activityiconcontainer {
+            display: none !important;
+        }
+    }
+
+     /* Loader. */
+     div[data-region="event-list-loading-placeholder"] {
+        display: none !important;
+    }
+
+    /* No events. */
+    div[data-region="no-events-empty-message"] {
+        text-align: left !important;
+        img {
+            display: none;
+        }
+        .text-muted {
+            color: $body-color !important;
+        }
+    }
+}

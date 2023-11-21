@@ -1,0 +1,147 @@
+/*
+* UCL navbar.
+*/
+
+#ucl-navbar {
+    height: $navbar-height;
+    color: white;
+
+    .container {
+        height: $navbar-height;
+    }
+    /* Hide dividers. */
+    .divider {
+        display: none;
+    }
+
+    /* Not loged in text. */
+    .usermenu .login {
+        color: white;
+        a {
+            color: $yellow;
+        }
+    }
+
+    /* Logo. */
+    #ucl-navbar-logo-link img {
+        height: 56px;
+        margin-bottom: -1em;
+    }
+
+    /* Links of various html.. */
+    .nav-link,
+    .link,
+    label,
+    #user-menu-toggle {
+        color: white;
+
+        &:hover {
+            color: $yellow;
+        }
+        &:focus:not(:focus-visible) {
+            box-shadow: none;
+        }
+        &:focus-visible {
+            color: $yellow;
+            box-shadow: none;
+            outline: 2px solid currentColor;
+        }
+    }
+
+    .nav-link {
+        width: 40px;
+        height: 40px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    /* Badge for unread notifications or messages. */
+    .ucl-navbar-links .popover-region .count-container,
+    .count-container {
+        background-color: $yellow;
+        color: $dark;
+        border-radius: 100%;
+        height: 1.25rem;
+        width: 1.25rem;
+        border: 1px solid $dark;
+        top: 0;
+        @extend .flex-center;
+
+        &.hidden {
+            display: none !important;
+        }
+    }
+
+    .dropdown-toggle {
+        &:after {
+            display: none; // Hide chevron.
+        }
+
+    }
+
+    /* User menu. */
+    #user-menu-toggle {
+        .userinitials {
+            border: 2px solid;
+            font-weight: 500;
+        }
+
+        &:hover,
+        &:focus {
+            .userinitials {
+                color: $yellow;
+                border-color: $yellow;
+            }
+        }
+    }
+
+    /* Dropdowns. */
+    .dropdown-menu {
+        border: 2px solid $dark;
+        box-shadow: 3px 10px 10px -6px rgba($dark, .75);
+
+        &.dropdown-menu-right {
+            width: 95vw !important;
+            max-width: 95vw;
+            // On large screens make width consistant with user menu.
+            @include media-breakpoint-up(md) {
+                width: 33vw !important;
+            }
+
+            @extend .animate-enter;
+            transition: margin .5s ease;
+            animation-duration: .5s;
+        }
+    }
+
+    /* Edit switch. */
+    .editmode-switch-form {
+        label,
+        .custom-control-input {
+            &:hover {
+                cursor: pointer;
+            }
+        }
+
+        /* When checked/in edit mode. */
+        label.text-primary {
+            color: $yellow !important;
+        }
+
+        .custom-control-input:checked ~ .custom-control-label::before {
+            border-color: $yellow;
+            background-color: $yellow;
+        }
+        .custom-control-input:focus ~ .custom-control-label::before {
+            border-color: $dark;
+            box-shadow: 0 0 0 3px $yellow;
+        }
+    }
+
+    // SHAME - hide notifications as theme has its own.
+    #nav-notification-popover-container {
+        display: none;
+    }
+}
+

@@ -1,0 +1,90 @@
+{{!
+    This file is part of Moodle - http://moodle.org/
+
+    Moodle is free software: you can redistribute it and/or modify
+    it under the terms of the GNU General Public License as published by
+    the Free Software Foundation, either version 3 of the License, or
+    (at your option) any later version.
+
+    Moodle is distributed in the hope that it will be useful,
+    but WITHOUT ANY WARRANTY; without even the implied warranty of
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+    GNU General Public License for more details.
+
+    You should have received a copy of the GNU General Public License
+    along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
+}}
+
+
+<div class="row">
+    {{^hidden}}
+    {{! Favorite. }}
+    <div class="col">
+    {{! N.B. You have to use a hidden class and output everything for js to work. }}
+        <button class="{{^isfavourite}}hidden{{/isfavourite}} d-flex align-items-center btn btn-pink text-pink remove-favourite"
+        type="button"
+        aria-pressed="true"
+        data-action="remove-favourite"
+        data-course-id="{{id}}"
+        aria-controls="favorite-icon-{{ id }}-{{ uniqid }}">
+            <i class="fa fa-star mr-2" aria-hidden="true"></i>
+            <small>Favorite</small>
+            <span class="sr-only">{{#str}} aria:removefromfavourites, block_myoverview {{/str}} {{{fullname}}}</span>
+        </button>
+
+        <button class="{{#isfavourite}}hidden{{/isfavourite}} d-flex align-items-center btn btn-pink add-favourite"
+        type="button"
+        aria-pressed="flase"
+        data-action="add-favourite"
+        data-course-id="{{id}}"
+        aria-controls="favorite-icon-{{ id }}-{{ uniqid }}">
+            <i class="fa fa-star-o mr-2" aria-hidden="true"></i>
+            <small>Favorite</small>
+            <span class="sr-only">{{#str}} aria:addtofavourites, theme_ucl {{/str}} {{{fullname}}}</span>
+        </button>
+    </div>
+    {{/hidden}}
+
+    {{! Archive. }}
+    <div class="col">
+        <div class="float-right">
+            <button class="{{^hidden}}hidden{{/hidden}} d-flex align-items-center btn btn-blue show-course"
+                type="button"
+                data-action="show-course"
+                data-course-id="{{id}}"
+                aria-controls="favorite-icon-{{ id }}-{{ uniqid }}">
+                    <i class="fa fa-eye mr-2" aria-hidden="true"></i>
+                    <small>{{#str}} show, block_myoverview {{/str}} <span class="sr-only">{{{fullname}}}</span></small>
+            </button>
+
+            <button class="{{#hidden}}hidden{{/hidden}} d-flex align-items-center btn btn-blue hide-course"
+                type="button"
+                aria-pressed="flase"
+                data-action="hide-course"
+                data-course-id="{{id}}"
+                aria-controls="favorite-icon-{{ id }}-{{ uniqid }}">
+                    <i class="fa fa-eye-slash mr-2"  aria-hidden="true"></i>
+                    <small>Hide</small>
+                    <span class="sr-only">{{#str}} aria:hidecourse, theme_ucl, {{fullname}} {{/str}}</span>
+            </button>
+        </div>
+    </div>
+</div>
+
+
+{{#js}}
+require(['jquery'], function($) {
+    $('.remove-favourite').unbind().click(function(e) {
+        const $el = $(this);
+        const id = $el.data('course-id');
+
+        $(`.dashboard-card[data-course-id=${id}]`).toggleClass('starred');
+    });
+    $('.add-favourite').unbind().click(function(e) {
+        const $el = $(this);
+        const id = $el.data('course-id');
+
+        $(`.dashboard-card[data-course-id=${id}]`).toggleClass('starred');
+    });
+});
+{{/js}}

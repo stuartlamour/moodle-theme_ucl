@@ -1,0 +1,99 @@
+/* Mod icons. */
+
+/* Filters to colour icons. */
+.f-content {
+    filter: invert(27%) sepia(79%) saturate(6432%) hue-rotate(201deg) brightness(96%) contrast(101%) !important; // Primary.
+}
+
+.f-communication {
+    filter: invert(30%) sepia(73%) saturate(1580%) hue-rotate(148deg) brightness(107%) contrast(100%) !important; // Teal.
+}
+
+.f-assessment {
+    filter: invert(49%) sepia(27%) saturate(6311%) hue-rotate(331deg) brightness(102%) contrast(104%) !important; // Salmon.
+
+}
+
+.f-collaboration {
+    filter: invert(56%) sepia(54%) saturate(1275%) hue-rotate(0deg) brightness(103%) contrast(105%)!important; // Orange.
+}
+
+/* Standard icons. */
+.activityiconcontainer {
+    border: none;
+    width: 2.5rem;
+    height: 2.5rem;
+    background-color: transparent !important;
+
+    &.btn {
+        display: flex;
+    }
+
+    .activityicon,
+    .icon {
+        width: 2rem;
+        height: 2rem;
+        /* Default - icons with nofilter keep there colours. */
+        /* E.g. matlab, and mod URL which links to a pdf and outputs a tragically dated looking pdf icon. */
+        &.nofilter {
+            filter: none;
+        }
+    }
+
+    &.content {
+        .activityicon,
+        .icon {
+            /* Content mods can have coloured icons (others cannot so far...) */
+            &:not(.nofilter) {
+                @extend .f-content;
+            }
+        }
+    }
+
+    &.communication {
+        .activityicon,
+        .icon {
+            @extend .f-communication;
+        }
+
+    }
+
+    &.assessment {
+        .activityicon,
+        .icon {
+            @extend .f-assessment;
+        }
+
+    }
+
+    &.collaboration,
+    &.administration {
+        .activityicon,
+        .icon {
+            @extend .f-collaboration;
+        }
+    }
+}
+
+/* None mapped mods we want to colorise with filters. */
+/* SHAME - class contains selector as modtype_ on course page and modicon_ elsehwere. */
+[class*='customcert'],
+[class*='hotpot'],
+[class*='turnitintooltwo'] {
+    .activityicon {
+        @extend .f-assessment;
+    }
+}
+
+[class*='helixmedia'],
+[class*='hvp']  {
+    .activityicon {
+        @extend .f-content;
+    }
+}
+
+[class*='hsuforum'] {
+    .activityicon {
+        @extend .f-communication;
+    }
+}

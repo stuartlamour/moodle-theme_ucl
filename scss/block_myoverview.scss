@@ -1,0 +1,129 @@
+/*
+* UCL block_myoverview scss.
+*/
+
+/* Courses overview block. */
+.block_myoverview.block {
+
+    .dashboard-card-deck {
+        /* Overwrite width, so 4 is minimum. */
+        @include media-breakpoint-up(md) {
+            &:not(.fixed-width-cards) {
+                .dashboard-card {
+                    min-width: calc(33.3% - 1rem);
+                }
+            }
+        }
+
+        @include media-breakpoint-up(lg) {
+            &:not(.fixed-width-cards) {
+                .dashboard-card {
+                    min-width: calc(25% - 1rem);
+                }
+            }
+        }
+
+        /* Course cards. */
+        .dashboard-card {
+            box-shadow: none !important;
+            padding: 0;
+            margin: 1rem .5rem;
+
+            .stretched-link,
+            .categoryname {
+                color: $body-color;
+            }
+
+            .categoryname.text-truncate {
+                white-space: normal;
+            }
+
+            /* Card action - favorite, archive etc. */
+            .course-card-actions {
+                /* Make buttons clickable over the stretched-link. */
+                position: relative;
+                z-index: 999;
+
+                /* Hidden is the class used by js. */
+                .hidden {
+                    display: none !important;
+                }
+
+                /* Button styles. */
+                .btn {
+                    text-decoration: none !important;
+                    background-color: transparent;
+                    @extend .px-0;
+
+                    // Favorites btn.
+                    &.btn-pink {
+                        &:hover,
+                        &:focus {
+                            color: $pink;
+                        }
+                        // Actually favorited - keep this one pink.
+                        &.remove-favourite {
+                            color: $pink !important;
+                        }
+                    }
+
+                    // Hide btn.
+                    &.btn-blue {
+                        color: $link-color;
+                        &:hover,
+                        &:focus {
+                            color: $link-hover-color !important;
+                        }
+                    }
+                }
+            }
+
+            /* Hover states. */
+            &:hover {
+                top: 0;
+                .stretched-link {
+                    color: $link-hover-color;
+                }
+                .bg-cover {
+                    transform: scale(1.03);
+                    border-radius: .5rem;
+                }
+            }
+
+
+        }
+    }
+
+    /* Sort filters. */
+    div[data-region="filter"] {
+        padding: .5rem  0;
+
+        input[id^="searchinput"] {
+            border-color: transparent;
+            border-bottom: 2px solid $link-color;
+            max-width: 66%;
+
+            &::placeholder {
+                color: $link-color;
+                opacity: 1; /* Firefox */
+            }
+        }
+
+        #sortingdropdown,
+        #groupingdropdown {
+            @extend .btn-link;
+            border-color: transparent !important;
+            background-color: transparent !important;
+
+            &:hover,
+            &:focus {
+                color: $link-hover-color !important;
+            }
+        }
+    }
+
+    /* Display filter. */
+    #displaydropdown {
+        display: none;
+    }
+}

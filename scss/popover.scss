@@ -1,0 +1,24 @@
+/*
+* UCL popovers, tooltips, modals.
+*/
+
+.popover,
+.tooltip {
+    box-shadow: .3em .3em 0 0 $dark !important;
+    border: 2px solid $dark !important;
+}
+
+.popover-region-container {
+    box-shadow: none !important;
+}
+
+.modal-content {
+    button.close {
+        color: $link-color;
+        opacity: 1;
+        &:hover,
+        &:focus {
+            color: $link-hover-color;
+        }
+    }
+}

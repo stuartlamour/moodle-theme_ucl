@@ -1,0 +1,126 @@
+/*
+* UCL Dashboard css.
+*/
+
+/* Dashboard. */
+#page-my-index {
+
+    &.pagelayout-mydashboard {
+        #page-header {
+            display: none;
+        }
+
+        &.editing {
+            #page-header {
+                display: block;
+            }
+        }
+    }
+
+   /* Block Pickup where you left off. */
+   .block_pickup.block {
+        @extend .full-width;
+        background-color: $yellow;
+        // background: linear-gradient(-135deg, $orange 0%, $pink 33%);
+
+        #block-pickup-content {
+            h3 {
+                font-size: $h2-font-size;
+                @extend .animate-enter;
+            }
+
+            a {
+                color: $body-color;
+                font-weight: 500;
+
+                &:hover,
+                &:focus {
+                    text-decoration: underline;
+                }
+            }
+
+            .stretched-link {
+                color: $body-color;
+                font-weight: bold;
+
+                &:hover,
+                &:focus {
+                    color: $link-hover-color;
+                }
+            }
+
+            /* Hover states. */
+            .pickup-card {
+                @extend .transition;
+                &:hover {
+                    box-shadow: .5rem .5rem 0 0 darken($yellow, 15%);
+                    transform: scale(1.02);
+                }
+            }
+
+            /* Vertical tabs. */
+             .nav-link {
+             .block-pickup-active-arrow {
+                color: transparent;
+                }
+
+                &:hover,
+                &:focus {
+                    .block-pickup-active-arrow {
+                        color: $pink;
+                    }
+                }
+
+                &.active {
+                    .block-pickup-active-arrow {
+                        color: $body-color;
+                    }
+                }
+            }
+        }
+    }
+
+   /* Block alerts - remove gutters. */
+   .block_alerts.block {
+       margin-bottom: 0 !important;
+
+       /* Remove y padding. */
+       .card-body {
+           padding: 0 1rem !important;
+       }
+   }
+
+   .block_timeline.block,
+   #block-region-side-pre {
+       margin-top: 1rem;
+       border-top: .3rem solid;
+
+       .card-title {
+            display: inline-block !important;
+            font-size: $h4-font-size;
+            margin: 0;
+            @extend .py-3;
+        }
+
+        .card-body {
+            padding: 0 !important;
+        }
+   }
+
+   .block_news.block {
+       @extend .full-width;
+       background-color: $light !important;
+       margin-bottom: 0 !important;
+       margin-top: 2rem;
+
+       .card-body {
+            @extend .container;
+       }
+
+       .card-title {
+           display: inline-block !important;
+           font-size: $h3-font-size;
+           @extend .py-2;
+       }
+   }
+}

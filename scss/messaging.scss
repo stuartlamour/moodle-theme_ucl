@@ -1,0 +1,134 @@
+// Messaging app.
+
+/* Messaging. */
+[data-region=right-hand-drawer].drawer {
+    top: auto !important;
+    bottom: 0;
+    right: 0;
+    height: 66vh;
+    width: 95vw !important;
+    max-width: 95vw;
+    margin: 1rem;
+    box-shadow: .3em .3em 0 0 $dark !important;
+    border: 2px solid $dark !important;
+
+    // On large screens make width consistant with user menu.
+    @include media-breakpoint-up(md) {
+        width: 33vw !important;
+    }
+}
+
+.message-app {
+    background-color: transparent !important;
+
+    // SHAME - Moodle uses hidden class.
+    .btn.hidden {
+        display: none;
+    }
+
+    .card-header {
+        background-color: transparent;
+        border-bottom: none;
+    }
+
+    // Contact request - sticky so needs bg colour.
+    [data-region="contact-request-sent-message-container"] {
+        background-color: white;
+    }
+
+    // Sections for catagories of messages.
+    .section {
+        // Section buttons to open section.
+        button {
+            color: $link-color;
+            margin: .25rem;
+            padding: .25rem;
+            background-color: $light;
+
+            &:hover,
+            &:focus {
+                color: $link-hover-color;
+            }
+
+            [data-region="section-total-count-container"] {
+                margin-left: auto !important; // Right align in flex.
+                visibility: hidden;
+                [data-region="section-total-count"] {
+                    visibility: visible;
+                }
+            }
+        }
+
+        // Remove border on sections.
+        .lazy-load-list {
+            border-bottom: none !important;
+        }
+    }
+
+    // Hide lots of icons.
+    .expanded-icon-container,
+    .collapsed-icon-container,
+    .tail {
+        display: none !important;
+    }
+
+    // Notifications badges.
+    .badge-primary {
+        // Make these appear as dots, hide the text.
+        border-radius: 100%;
+        font-size: 0;
+    }
+
+    // Messages in a list.
+    .list-group-item {
+        background-color: transparent;
+        padding: .5rem !important;
+        border: none;
+        // Hide icons.
+        .fa-chevron-right,
+        .fa-chevron-left {
+            display: none;
+        }
+        &:hover,
+        &:focus {
+            color: $dark;
+        }
+    }
+
+    // Message box.
+    [data-region="text-container"] {
+        border-radius: .5rem;
+        background-color: rgba($bright-blue, .1);
+        padding: .5rem;
+    }
+
+    .message {
+        background-color: transparent !important;
+        // Messages user has sent.
+        &.send {
+            margin-left: 10% !important;
+            // Use brand colours for messages user has sent.
+            [data-region="text-container"] {
+                background-color: rgba($pink, .1);
+                color: $dark;
+            }
+        }
+    }
+
+    // Remove text shadow hover.
+    .clickable:hover {
+        filter: none !important;
+    }
+
+    // Search highlight.
+    .matchtext {
+        display: inline-block;
+        margin: 0 .3rem;
+        background-color: $yellow;
+    }
+
+    // Remove 'see all' link to other messaging system.
+    .footer-container div[data-region="view-overview"] {
+        display: none;
+    }
+}

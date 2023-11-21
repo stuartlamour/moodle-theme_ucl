@@ -1,0 +1,41 @@
+//
+// Scss import file for the theme.
+//
+
+// Only imports allowed here, no scss!
+
+// Import from boost.
+@import "fontawesome";
+@import "bootstrap";
+
+// Import UCL theme vars.
+@import "variables";
+
+// SHAME - magic trick, recompile bootstrap with child theme variables...
+@import "bootstrap";
+
+// Import boost scss.
+@import "moodle";
+
+// Import ucl scss.
+@import "layout.scss";
+@import "utility.scss";
+@import "animation.scss";
+@import "popover.scss";
+@import "icons.scss";
+@import "navbar.scss";
+@import "messaging.scss";
+@import "footer.scss";
+
+// Blocks.
+@import "block_myoverview.scss";
+@import "block_timeline.scss";
+@import "block_news.scss";
+
+// Pages.
+@import "site-index.scss";
+@import "dashboard.scss";
+@import "course.scss";
+
+// Boostrap (to overwrite moodle?)
+@import "bootstrap/_buttons.scss"

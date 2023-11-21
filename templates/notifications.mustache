@@ -1,0 +1,146 @@
+{{!
+    User menu notifications.
+}}
+
+<div class="dropdown" id="ucl-notifications-dropdown">
+  <button class="btn btn-link link dropdown-toggle" type="button" id="ucl-notifications-dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" title="{{#str}} notifications {{/str}}" style="height: 49px;">
+    {{#unread}}
+    <span class="count-container" data-region="count-container">
+        <span id="ucl-notifications-count">{{{unread}}}</span>
+        <span class="sr-only">Unread</span>
+    </span>
+    {{/unread}}
+    <i class="fa-regular fa-bell"></i>
+    <span class="sr-only">{{#str}} notifications {{/str}}</span>
+  </button>
+
+  <div  class="dropdown-menu dropdown-menu-right p-0" style="min-width: 320px; max-height: 90vh; overflow: auto;" aria-labelledby="ucl-notifications-dropdown-toggle">
+
+        <h5 class="p-3">{{#str}} notifications {{/str}}</h5>
+
+        {{^loggedinas}}
+        <div class="dropdown" style="position:absolute; top: 0; right: 0;">
+            <button class="btn btn-icon rounded-circle m-2" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" id="ucl-notifications-settings-dropdown"  title="Notifications options">
+                <i class="fa fa-ellipsis-v fa-fw m-0" aria-hidden="true"></i>
+            </button>
+            {{! Notification settings. }}
+            <div class="dropdown-menu">
+                <a class="dropdown-item" href="#" id="mark-notifications-as-read">
+                    {{#str}} markallread {{/str}}
+                </a>
+                <a class="dropdown-item" href="{{{ config.wwwroot }}}/message/notificationpreferences.php">
+                    {{#str}} notifications {{/str}} settings
+                </a>
+            </div>
+        </div>
+        {{/loggedinas}}
+
+   <ul class="usermenu-notifications list-unstyled mb-0 px-2">
+       {{#notifications}}
+           <li class="usermenu-notification {{^read}} bg-light notification-unread {{/read}}"
+               id="notification-{{id}}">
+               <div class="media media-course border-bottom p-2">
+                   {{#image}}
+                   <div class="media-course-image bg-cover rounded-circle align-self-center mr-2" style='background-image: url("{{{image}}}"); height: 50px; width: 50px;'></div>
+                   {{/image}}
+                   <div class="media-body align-self-center">
+
+
+                            {{! Notification with link. }}
+                            {{#url}}
+                            <a href="{{url}}">{{{subject}}}</a>
+                            {{/url}}
+
+                            {{! Notification without link. }}
+                            {{^url}}
+                            <span>{{{subject}}}</span>
+                            {{/url}}
+                            <div class="media-course-date">
+                                <small>
+                                    {{#userdate}} {{date}}, {{#str}} strftimedate {{/str}} {{/userdate}}
+                                </small>
+                                {{^read}}<small> · <a href="#" class="mark-notification-as-read" data-id="{{id}}">Mark as read</a></small>{{/read}}
+                            </div>
+                    </div>
+               </div>
+           </li>
+       {{/notifications}}
+
+       {{^notifications}}
+       <div class="text-center p-5">
+           <p class="h5">No notifications in the last month.</p>
+           <h1 class="text-info"><i class="fa fa-bell" alt=""></i></h1>
+        <div>
+       {{/notifications}}
+   </ul>
+   </div>
+
+</div>
+
+<!-- Persist on click etc... -->
+{{#js}}
+require(['jquery', 'core/ajax'], function($, Ajax) {
+
+    // Prevent dropdown closing.
+    $('#ucl-notifications-settings-dropdown, #mark-notifications-as-read, .mark-notification-as-read').on('click', function() {
+        // Set a class on the dropdown.
+        $('#ucl-notifications-dropdown').addClass('persist');
+    });
+
+    $('#ucl-notifications-dropdown').on('hide.bs.dropdown', function(e) {
+        if ( $(this).hasClass('persist') ){
+            e.preventDefault();
+        }
+        $(this).removeClass('persist');
+    });
+
+    // Mark a notification as read.
+    $('.mark-notification-as-read').on('click', function() {
+        $(this).addClass('d-none');
+
+        // Get the id form data-id.
+        id = $(this).attr('data-id')
+        var args = {
+            notificationid: id,
+        };
+        var request = {
+            methodname: 'core_message_mark_notification_read',
+            args: args
+        };
+
+        Ajax.call([request])[0].then(function(response) {
+            // Remove unread notifications class.
+            $('#notification-'+id).removeClass('notification-unread');
+            $('#notification-'+id).removeClass('bg-light');
+            // Reduce unread notifications badges.
+            count = $('#ucl-notifications-count').text() -1;
+            $('#ucl-notifications-count').html(count);
+            if(!count) {
+                $('#ucl-notifications-dropdown .count-container').remove();
+            }
+
+        });
+    });
+
+    // Mark all notifications as read.
+    $('#mark-notifications-as-read').on('click', function() {
+         var args = {
+            useridto: '{{userid}}',
+            useridfrom: '0' // 0 means anyone!
+        };
+
+        var request = {
+            methodname: 'core_message_mark_all_notifications_as_read',
+            args: args
+        };
+
+        Ajax.call([request])[0].then(function(response) {
+            // Remove unread notifications class.
+            $('.usermenu-notification').removeClass('notification-unread');
+            $('.usermenu-notification').removeClass('bg-light');
+            // Remove unread notifications badges.
+            $('#ucl-notifications-dropdown .count-container').remove();
+        });
+    });
+});
+{{/js}}

@@ -1,0 +1,137 @@
+/* Focus. */
+body div#page *:not(.btn):focus-visible,
+body #ucl-navbar *:focus-visible {
+    outline: 2px solid currentColor;
+}
+/* Mouse click. */
+*:focus:not(:focus-visible) {
+    outline: none !important;
+    background-color: transparent;
+    box-shadow: none;
+    color: $link-hover-color;
+}
+
+/* TODO - turn off nasty moodle focus things...*/
+[role="button"]:focus,
+a.dropdown-toggle:focus,
+a:not([class]):focus,
+a:focus,
+.aalink:focus,
+.arrow_link:focus {
+    box-shadow: none;
+    background-color: transparent;
+    color: $link-hover-color;
+}
+
+/* Screen reader only focusable. */
+div#page .sr-only:focus-visible {
+    background-color: white;
+}
+
+html,
+body {
+    height: auto;
+}
+
+#page.drawers {
+    height: 100% !important;
+    padding: 0 !important; // Remove 3rem large padding. */
+    margin-top: 0;
+    overflow: unset;
+}
+
+/* Reset max page width. */
+.main-inner,
+.secondary-navigation,
+.container {
+    max-width: 1140px !important;
+    margin-top: 0 !important;
+}
+
+.main-inner {
+    padding: 0 1rem !important;
+    width: 100% !important; // Remove small screen width restriction.
+    margin-bottom: 0 !important;
+}
+
+/* To position draw toggles we make page relative. */
+#page {
+    position: relative;
+
+    .drawer-toggles .drawer-toggler {
+        position: absolute;
+        top: 1rem !important;
+    }
+}
+
+/* Blocks. */
+.block.card {
+    border: none;
+}
+
+/* Breadcrumb. */
+#page-navbar {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    .breadcrumb:not(:empty) {
+        background-color: white;
+        padding: 1rem 0;
+    }
+}
+
+// User initials.
+.userinitials {
+    background-color: $dark;
+    color: white;
+    border: 1px solid white;
+    margin: 0;
+}
+.userloggedinas .userinitials {
+    background-color: $dark !important;
+    color: white !important;
+    border: 1px solid white;
+}
+
+
+/* Notifications. */
+#nav-notification-popover-container {
+    position: static;
+    .popover-region-toggle {
+        position: relative;
+
+        /* Hide box faux speach arrow. */
+        &:after,
+        &:before {
+            display: none;
+        }
+
+        .count-container {
+            border-radius: 100%;
+            width: 1rem;
+            height: 1rem;
+            text-align: center;
+            background-color: $danger;
+        }
+
+    }
+    .popover-region-container {
+        box-shadow: 0.3em 0.3em 0 0 $dark!important;
+        border: 2px solid $dark !important;
+        margin: 1rem;
+        top: 5rem;
+        height: auto;
+        width: 300px;
+        z-index: 1021;
+    }
+}
+
+// Blocks.
+.block-add {
+    border: 1px solid $primary !important;
+}
+
+.userpicture {
+    border-radius: 100%;
+    border: 1px solid white;
+}

@@ -1,0 +1,21 @@
+/*
+* UCL block_news scss.
+*/
+
+/* News block hover arrow. */
+.block-news-item {
+    .block-news-hover-arrow {
+        @extend .transition-quick;
+        border: 3px solid $yellow; // MAGIC NUMBER - border to align with image.
+    }
+    &:hover,
+    &:focus {
+        .block-news-hover-arrow {
+            border-color: $primary;
+            background-color: $primary;
+            i {
+                color: white;
+            }
+        }
+    }
+}

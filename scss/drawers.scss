@@ -1,0 +1,46 @@
+/* Drawers. */
+#page.drawers {
+    &.show-drawer-right,
+    &.show-drawer-left {
+        margin-left: 0 !important;
+        margin-right: 0 !important;
+    }
+}
+
+.drawer {
+    position: absolute;
+    top: 1rem;
+    height: auto;
+    max-height: 95%;
+    margin: 0 1rem;
+    z-index: 1050;
+    box-shadow: 0.3em 0.3em 0 0 #000 !important;
+    // border: 2px solid #000 !important;
+    border-image-source: linear-gradient(to left, $pink, $bright-blue);
+    border: 2px solid;
+    border-image-slice: 1;
+    border-width: 2px;
+
+}
+
+.drawer.drawer-left {
+    background-color: white;
+    overflow: auto;
+
+    .drawercontent {
+        height: auto;
+        direction: ltr;
+    }
+}
+
+.drawer.drawer-right {
+    right: 0;
+    /* Right had drawer - make scrollbar apear on the left. */
+    direction: rtl;
+    overflow: auto;
+
+    .drawercontent {
+        height: auto;
+        direction: ltr;
+    }
+}

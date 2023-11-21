@@ -1,0 +1,99 @@
+/*
+* UCL Course scss.
+*/
+
+.pagelayout-course {
+
+    .course-content {
+        .course-section {
+            padding: .5rem 0;
+
+            /* Smaller section names to fit more on the page. */
+            h3.sectionname {
+                font-size: $h5-font-size;
+            }
+
+            /* Section collapse chevrons. */
+            .icons-collapse-expand {
+                // When expanded.
+                background-color: $dark;
+                color: white;
+                border: 2px solid;
+                @extend .mr-2;
+
+                // When collapsed.
+                &.collapsed {
+                    color: $dark;
+                    background-color: transparent;
+                    &:hover {
+                        background-color: $dark;
+                        color: white;
+                    }
+                }
+            }
+
+            .content.course-content-item-content {
+                margin-left: 3rem;
+            }
+        }
+    }
+
+    /* Colapse/expand all sections link. */
+    #collapsesections {
+        @extend .btn;
+        @extend .btn-dark;
+        margin-top: -1rem; // SHAME - otherwise the expand chevron looks odd.
+        /* TODO - chevron after.. */
+    }
+
+    /* Completion button. */
+    .activity-completion {
+
+        /* Use success btn. */
+        button.btn-outline-secondary {
+            @extend .btn-outline-success;
+        }
+        button.btn-success {
+            @extend .btn-success;
+        }
+    }
+
+    /* Activity link. */
+    .activityname {
+        font-weight: 500;
+    }
+
+    /* Editing. */
+    .activity-add {
+        margin-bottom: 0 !important;
+    }
+    // Add a topic.
+    .changenumsections {
+        border-top: none;
+        margin-left: -3rem; // Line up with topic names.
+            .fa-plus {
+                width: 32px;
+                height: 32px;
+                &:before {
+                    content: "\f055";
+                }
+            }
+    }
+}
+
+/* In course mod pages. */
+.path-mod {
+
+    /* Add back activity header bg color. */
+    .activity-header:not(:empty) {
+        background-color: $light;
+    }
+
+    // Mark as complete.
+    .completion-info {
+        /* Use success btn. */
+        .btn-outline-secondary {
+            @extend .btn-outline-success;
+        }
+    }
+}

@@ -1,0 +1,93 @@
+/*
+* UCL site-index.
+*/
+
+#page-site-index {
+
+    // Navbar.
+    #ucl-navbar {
+        .ucl-navbar-links {
+            display: none !important;
+        }
+    }
+
+    // Page Hero element.
+    #ucl-hero {
+        background: url([[pix:theme|graph-paper]]) center no-repeat;
+        background-size: cover;
+
+        #ucl-hero-content {
+            background: url([[pix:theme|home]])  center right no-repeat;
+            background-size: contain;
+            min-height: 350px;
+
+            @include media-breakpoint-down(md) {
+                background: none;
+                min-height: 0;
+            }
+        }
+
+        /* Animated text gradiant background. */
+        h1 {
+            background: linear-gradient(45deg, $dark, $pink,  $purple, #AA00FF, $pink, $pink, $purple, $dark) 0 0 / 400% 100%;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            animation: movebg 60s linear infinite;
+        }
+
+        @keyframes movebg {
+            to {
+                background-position: 400% 0;
+            }
+        }
+        /* Fancy login button. */
+        .btn-primary {
+            background-color: $pink;
+            border-color: $pink;
+            i {
+                margin: 0 .25rem;
+            }
+            &:hover,
+            &:focus {
+                i {
+                    margin-right: 0;
+                    margin-left: .5rem;
+                    color: $yellow;
+                }
+            }
+        }
+    }
+
+    // Remove padding, this is shown but empty.
+    #page-content {
+        padding-bottom: 0 !important;
+
+        #maincontent + br {
+            display: none;
+        }
+    }
+
+    /* News block. */
+    .block_news.block {
+        @extend .full-width;
+        margin-bottom: 0 !important;
+        background-color: $light;
+
+        .card-body {
+            @extend .container;
+        }
+
+        .card-title {
+            display: inline-block !important;
+            font-size: $h2-font-size;
+            @extend .py-3;
+        }
+    }
+
+    /* Alerts. */
+    .block_alerts.block {
+        .card-body {
+            padding: 0 !important;
+        }
+    }
+}

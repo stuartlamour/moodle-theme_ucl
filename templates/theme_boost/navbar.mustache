@@ -1,0 +1,69 @@
+{{!
+
+    @template theme_ucl/navbar
+
+    This template renders the top navbar.
+
+    Example context (json):
+    {
+        "output": {
+            "should_display_navbar_logo": true,
+            "get_compact_logo_url": "http://placekitten.com/50/50",
+            "custom_menu": "<li>..</li>",
+            "page_heading_menu": "<li>..</li>",
+            "search_box": "<div><input type='text'></div>",
+            "navbar_plugin_output": "<div class='dropdown'>Messaging</div>",
+            "user_menu": "<div class='dropdown'>John Doe</div>"
+        },
+        "config": {
+            "wwwroot": "#",
+            "homeurl": "/my/"
+        },
+        "sitename": "Moodle Site",
+        "mobileprimarynav": [
+            {
+                "text": "Dashboard",
+                "url": "/my",
+                "isactive": true
+            },
+            {
+                "text": "Site home",
+                "url": "/",
+                "isactive": false
+            },
+            {
+                "text": "My courses",
+                "url": "/course",
+                "isactive": false
+            }
+        ]
+    }
+}}
+
+<nav id="ucl-navbar" class="bg-dark">
+    <div class="container d-flex align-items-center">
+
+        <a href="{{{ config.wwwroot }}}/my/" id="ucl-navbar-logo-link" class="d-block">
+            <img class="d-none d-md-block" alt="{{{sitename}}}" src="{{{ config.wwwroot }}}/theme/ucl/pix/headerlogo.svg" />
+            <img class="d-block d-md-none" alt="{{{sitename}}}" src="{{{ config.wwwroot }}}/theme/ucl/pix/headerlogo-small.svg" />
+        </a>
+
+
+        <div class="ucl-navbar-links pl-3 d-none d-md-block">
+            <a href="{{{ config.wwwroot }}}/my/" class="link mx-3">Home</a>
+            <a href="{{{ config.wwwroot }}}/my/courses.php" class="link">My courses</a>
+        </div>
+
+
+        <div class="ucl-navbar-links ml-auto d-flex align-items-center h-100">
+            <a href="{{{ config.wwwroot }}}/admin/search.php" class="link mx-2" title="Admin"><i class="fa-solid fa-bolt-lightning"></i></a>
+            {{{ output.navbar_plugin_output }}}
+            {{{ output.noty }}}
+            {{#usermenu}}
+                {{> core/user_menu }}
+            {{/usermenu}}
+            {{{ output.edit_switch }}}
+        </div>
+    </div>
+</nav>
+

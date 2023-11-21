@@ -1,0 +1,74 @@
+<div class="p-3" aria-hidden="false"  {{^isdrawer}}data-in-panel="true"{{/isdrawer}} data-region="view-overview">
+    <div class="d-flex align-items-center">
+
+        <h5 class="m-0" id="message-drawer-title" tabindex="0">{{#str}} messages, core_message {{/str}}</h5>
+
+        <div class="ml-auto">
+
+            <a href="#" class="btn btn-link" role="button"
+                data-toggle="tooltip"
+                data-placement="top"
+                title="{{#str}} settings, core_message {{/str}}"
+                aria-label="{{#str}} settings, core_message {{/str}}"
+                data-route="view-settings"
+                data-route-param="{{loggedinuser.id}}">
+                <i class="fa-solid fa-gear"></i>
+            </a>
+
+            <a href="#" class="btn btn-link" role="button"
+                data-toggle="tooltip"
+                data-placement="top"
+                title="{{#str}} contacts, core_message {{/str}}"
+                data-route="view-contacts">
+                <i class="fa-solid fa-user"></i>
+                <span class="badge badge-primary badge-pill bg-primary ml-2 {{^contactrequestcount}} hidden {{/contactrequestcount}}"
+                data-region="contact-request-count"
+                aria-label="{{#str}} pendingcontactrequests, core_message, {{contactrequestcount}} {{/str}}">
+                    {{contactrequestcount}}
+                </span>
+            </a>
+
+            <a href="#" class="btn btn-link" role="button"
+                data-toggle="tooltip"
+                data-placement="top"
+                title="{{#str}} search, core_search {{/str}}"
+                aria-label="{{#str}} search, core_search {{/str}}"
+                data-route="view-search"  >
+                <i class="fa-solid fa-magnifying-glass"></i>
+            </a>
+
+            <a href="#" class="btn btn-link" role="button"
+                id="message-drawer-close"
+                data-toggle="tooltip"
+                data-placement="top"
+                title="{{#str}} closebuttontitle, core {{/str}}"
+                aria-label="{{#str}} closebuttontitle, core {{/str}}">
+                <i class="fa-solid fa-xmark"></i>
+            </a>
+
+        </div>
+
+    </div>
+</div>
+
+{{#js}}
+    require(['jquery'], function($) {
+        // Close messaging button.
+        $("#message-drawer-close").on("click", function(){
+            $("#drawer-{{uniqid}}").addClass("hidden").attr("aria-expanded","false").attr("aria-hidden","true");
+            event.preventDefault();
+        });
+
+        // Focus.
+        $("[id^=message-drawer-toggle]").on("click", function(){
+            $("#message-drawer-title").focus();
+        });
+    });
+{{/js}}
+
+<style>
+.closewidget.text-right.pr-2 {
+    display: none;
+}
+
+</style>

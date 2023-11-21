@@ -1,0 +1,30 @@
+/*
+* UCL footer.
+*/
+
+#ucl-footer {
+    /* Dark footer, so white content. */
+    *,
+    a {
+        color: white;
+    }
+
+    #footer-metadata {
+        a {
+            padding-right: .5rem; // Space on inline links.
+
+            /* Hide icons on help and contact links. */
+            .icon {
+                display: none;
+            }
+        }
+
+        /* SHAME - some moodle links are in divs, so inline them. */
+        div {
+            display: inline-block;
+        }
+    }
+}
+
+
+

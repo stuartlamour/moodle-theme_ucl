@@ -1,0 +1,204 @@
+/*
+* UCL variables.
+*
+* This should mirror bootstrap vars file as much as possible.
+*/
+
+/* Colours. */
+/* UCL Brand Colours. */
+$bright-blue: #34C6C6;
+$yellow:      #FFCA36;
+$pink:        #AC145A;
+$green:       #52C152;
+$purple:      #500778;
+
+/* UCL Utility colours. */
+$util-blue:     #0065D1;
+$util-green:    #238638;
+$util-red:      #DC2626;
+$util-dark:     #1a1a1a;
+
+/* Bootstrap vars. */
+$body-color: $util-dark;
+$headings-color: $body-color;
+
+$primary:   $util-blue; // N.B. - overwriten in norse.
+$secondary: #e6e6e6;
+$success:   $util-green;
+$warning:   $yellow;
+$danger:    $util-red;
+$info:      $bright-blue;
+$light:     #F3F4F6;
+$dark:      $util-dark;
+
+$theme-colors: ();
+$theme-colors: map-merge((
+    primary: $primary,
+    secondary: $secondary,
+    success: $success,
+    info: $info,
+    warning: $warning,
+    danger: $danger,
+), $theme-colors);
+
+
+/* Moodle activity icons. */
+$assessment:    $pink;
+$collaboration: $purple;
+$communication: $bright-blue;
+$content:       $util-blue;
+
+$activity-icon-colors: ();
+$activity-icon-colors: map-merge(
+    (
+        "administration": $bright-blue,
+        "assessment": $assessment,
+        "collaboration": $collaboration,
+        "communication": $communication,
+        "content": $content,
+        "interface": $util-blue
+    ),
+    $activity-icon-colors
+);
+
+
+/* Moodle activity icons. */
+$assessment:    $pink;
+$collaboration: $bright-blue;
+$communication: $orange;
+$content:       $util-blue;
+
+$activity-icon-colors: ();
+$activity-icon-colors: map-merge(
+    (
+        "administration": $bright-blue,
+        "assessment": $assessment,
+        "collaboration": $collaboration,
+        "communication": $communication,
+        "content": $content,
+        "interface": $util-blue
+    ),
+    $activity-icon-colors
+);
+
+/* Moodle vars. */
+$navbar-height: 72px;
+$course-content-maxwidth: 1140px;
+$h5p-content-maxwidth: 1140px;
+
+/* Borders. */
+$border-radius: 0;
+$border-radius-lg: $border-radius;
+$border-radius-sm: $border-radius;
+$card-border-radius: $border-radius;
+
+/* Typography. */
+$font-size-base: 1rem;
+$font-family-sans-serif: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", "Liberation Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+$font-family-monospace:  SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+$font-family-base:       $font-family-sans-serif;
+
+$small-font-size: 80%;
+
+$headings-font-weight: 700;
+$display-font-weight: 700;
+
+// Progress.
+$progress-height: .4rem;
+
+/* Tooltips. */
+$tooltip-font-size:                 14px;
+$tooltip-max-width:                 250px;
+$tooltip-color:                     $body-color;
+$tooltip-bg:                        white;
+$tooltip-border-radius:             0;
+$tooltip-opacity:                   1;
+$tooltip-padding-y:                 .3rem;
+$tooltip-padding-x:                 .6rem;
+$tooltip-margin:                    .3rem;
+
+$tooltip-arrow-width:               0;
+$tooltip-arrow-height:              0;
+$tooltip-arrow-color:               transparent;
+
+/* Popovers */
+$popover-font-size:                 14px;
+$popover-bg:                        $white !default;
+$popover-max-width:                 276px !default;
+$popover-border-width:              2px;
+$popover-border-color:              $body-color;
+$popover-border-radius:             0;
+$popover-inner-border-radius:       0;
+$popover-box-shadow:               .3em .3em 0 0 $body-color;
+
+$popover-header-bg:                 darken($popover-bg, 3%) !default;
+$popover-header-color:              $headings-color !default;
+$popover-header-padding-y:          .5rem !default;
+$popover-header-padding-x:          .75rem !default;
+
+$popover-body-color:                $body-color !default;
+$popover-body-padding-y:            $popover-header-padding-y !default;
+$popover-body-padding-x:            $popover-header-padding-x !default;
+
+$popover-arrow-width:               0;
+$popover-arrow-height:              0;
+$popover-arrow-color:               transparent;
+
+$popover-arrow-outer-color:         transparent;
+
+/* Modals */
+// Padding applied to the modal body
+$modal-inner-padding:               1rem !default;
+
+// Margin between elements in footer, must be lower than or equal to 2 * $modal-inner-padding
+$modal-footer-margin-between:       .5rem !default;
+
+$modal-dialog-margin:               .5rem !default;
+$modal-dialog-margin-y-sm-up:       1.75rem !default;
+
+$modal-content-color:               null !default;
+$modal-content-bg:                  $white !default;
+$modal-content-border-color:        $body-color;
+$modal-content-border-width:        2px;
+$modal-content-border-radius:       0;
+$modal-content-inner-border-radius: 0;
+$modal-content-box-shadow-xs:       .3em .3em 0 0 $body-color;
+$modal-content-box-shadow-sm-up:    .3em .3em 0 0 $body-color;
+
+$modal-backdrop-bg:                 darken($link-hover-color, 30%);
+$modal-backdrop-opacity:            .666;
+
+$modal-xl:                          1140px !default;
+$modal-lg:                          800px !default;
+$modal-md:                          500px !default;
+$modal-sm:                          300px !default;
+
+$modal-fade-transform:              translate(0, -50px) !default;
+$modal-show-transform:              none !default;
+$modal-transition:                  transform .3s ease-out !default;
+$modal-scale-transform:             scale(1.02) !default;
+
+/* Buttons. */
+$btn-font-weight:             500;
+// Allows for customizing button radius independently from global border radius
+$btn-border-radius:           $border-radius;
+$btn-border-radius-lg:        $border-radius-lg;
+$btn-border-radius-sm:        $border-radius-sm;
+
+/* Inputs. */
+$input-border-radius:                   $border-radius;
+$input-border-radius-lg:                $border-radius-lg;
+$input-border-radius-sm:                $border-radius-sm;
+
+$custom-select-border-radius:       $border-radius;
+$nav-tabs-border-radius:            $border-radius;
+$dropdown-border-radius:            $border-radius;
+
+$card-border-radius:                $border-radius;
+$badge-border-radius:               $border-radius;
+$alert-border-radius:               $border-radius;
+
+$progress-border-radius:            $border-radius;
+$list-group-border-radius:          $border-radius;
+$breadcrumb-border-radius:          $border-radius;
+

@@ -1,0 +1,122 @@
+/*
+* UCL Utility classes.
+*
+* Only to be used for unitility classes.
+* Extending bootstrap or importing from more modern versions/tailwind etc.
+* Don't add just any old scss here, or a kitten dies.
+*
+*/
+
+/* Image utils - background and object fit. */
+.bg-cover {
+    background-size: cover;
+    background-position: center;
+}
+
+.object-fit-cover {
+    object-fit: cover;
+    object-position: center;
+}
+
+/* Flex center. */
+.flex-center {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Animation transitions. */
+.transition {
+    transition: all 1s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.transition-quick {
+    transition: all .5s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.transition-slow {
+    transition: all 2s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+
+/* Line clamp utilities. */
+.line-clamp-1 {
+    display: -webkit-box;
+    -webkit-line-clamp: 1;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+
+.line-clamp-2 {
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+
+.line-clamp-3 {
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+
+/* Height untilities. */
+/* TODO - make mixin. */
+.h-400 {
+    min-height: 400px;
+}
+
+.h-350 {
+    min-height: 350px;
+}
+
+.h-300 {
+    min-height: 300px;
+}
+
+.h-250 {
+    min-height: 250px;
+}
+
+.h-200 {
+    min-height: 200px;
+}
+
+/* Full width componant. */
+.full-width {
+    width: 100vw;
+    position: relative;
+    left: 50%;
+    right: 50%;
+    margin-left: -50vw;
+    margin-right: -50vw;
+    max-width: 100vw;
+}
+
+/* Background colors. */
+.bg-yellow {
+    background-color: $yellow;
+}
+.bg-pink {
+    background-color: $pink;
+}
+.bg-green {
+    background-color: $green;
+}
+
+/* Background gradiants - TODO mixin. */
+.bg-gradiant-blue-green {
+    background: linear-gradient(-135deg, $bright-blue 0%, $green 100%);
+}
+
+/* Text colors. */
+.text-yellow {
+    color: $yellow;
+}
+.text-pink {
+    color: $pink;
+}
+.text-green {
+    color: $green;
+}
