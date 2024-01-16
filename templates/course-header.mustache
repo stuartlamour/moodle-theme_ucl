@@ -75,9 +75,15 @@
                 <div class="header-action">{{{.}}}</div>
             {{/headeractions}}
 
+            {{! Context locked. }}
+            {{#readonly}}
+                <span class="badge badge-pill badge-danger mr-2">Read only</span>
+            {{/readonly}}
+            {{! Visability. }}
             {{^visible}}
                 <span class="badge badge-pill badge-warning">{{#str}} hiddenfromstudents {{/str}}</span><br>
             {{/visible}}
+
 
         </div>
 
@@ -87,7 +93,25 @@
 </div>
 {{#hasprogress}}
 {{#js}}
-require(['jquery'], function($) {
+require(['jquery', 'theme_boost/bootstrap/collapse'], function($) {
+
+    // MEH - open allow one section open at a time?
+    // TODO - Move collapse button?
+    if (window.location.hash) {
+        open = window.location.hash;
+        // Open this, close others.
+        $('.course-content').find('li:not('+open+') .collapse').collapse('hide');
+        $('.course-content '+open+' .collapse').collapse('show');
+    }
+    /*
+    // TODO - collapssesection0 click, collapse everything else?
+    // sections icons-collapse-expand
+    // If collapse show is greater than one, collapse all.
+    length = $('.course-content .collapse.show').length;
+    if(length > 2) {
+        $('.course-content .collapse').collapse('hide');
+    }
+    */
 
     // Course progress.
     setTimeout(() => {

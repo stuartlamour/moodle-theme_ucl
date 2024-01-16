@@ -49,13 +49,13 @@
 	transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 }
 #lecture_cast {
-	animation-duration: 2s;
+	animation-duration: 1s;
 }
 #assignment {
-	animation-duration: 3s;
+	animation-duration: 1.5s;
 }
 #forum {
-	animation-duration: 3.5s;
+	animation-duration: 2s;
 }
 #pencilhand {
 	display: none;
@@ -92,12 +92,12 @@
 
 <defs>
         <linearGradient id="logo-gradient" x1="0%" y1="0%" x2="50%" y2="100%" >
-			<stop offset="0%" stop-color="#AC145A">
-		<animate attributeName="stop-color" values="#AC145A; #EA7600; #F6BE00; #EA7600; #AC145A;" dur="30s" repeatCount="indefinite"></animate>
+			<stop offset="0%" stop-color="#52C152">
+		<animate attributeName="stop-color" values="#52C152; #34C6C6; #FFCA36; #34C6C6; #52C152;" dur="10s" repeatCount="indefinite"></animate>
 	</stop>
 
-	<stop offset="100%" stop-color="#AC1358">
-		<animate attributeName="stop-color" values="#AC1358; #AC1358; #E67301; #AA00FF; #AC1358;" dur="60s" repeatCount="indefinite"></animate>
+	<stop offset="100%" stop-color="#FFCA36">
+		<animate attributeName="stop-color" values="#FFCA36; #52C152; #34C6C6; #52C152; #FFCA36;" dur="20s" repeatCount="indefinite"></animate>
 	</stop>
 
 

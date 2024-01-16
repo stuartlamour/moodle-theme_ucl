@@ -28,11 +28,20 @@ div#page .sr-only:focus-visible {
     background-color: white;
 }
 
+
 html,
 body {
     height: auto;
 }
 
+// Reduce font size on small screen.
+@include media-breakpoint-down(md) {
+    html {
+        font-size: 14.5px;
+    }
+}
+
+/* Moodle page. */
 #page.drawers {
     height: 100% !important;
     padding: 0 !important; // Remove 3rem large padding. */
@@ -52,6 +61,14 @@ body {
     padding: 0 1rem !important;
     width: 100% !important; // Remove small screen width restriction.
     margin-bottom: 0 !important;
+}
+
+// Maincontent accessability skip link.
+#maincontent {
+    height: auto;
+    + br {
+        display: none;
+    }
 }
 
 /* To position draw toggles we make page relative. */
@@ -84,12 +101,16 @@ body {
 .userinitials {
     background-color: $dark;
     color: white;
-    border: 1px solid white;
+    border: 2px solid $white;
     margin: 0;
 }
 .userloggedinas .userinitials {
     background-color: $dark !important;
     color: white !important;
+    border: 2px solid white;
+}
+.userpicture {
+    border-radius: 100%;
     border: 1px solid white;
 }
 
@@ -131,7 +152,4 @@ body {
     border: 1px solid $primary !important;
 }
 
-.userpicture {
-    border-radius: 100%;
-    border: 1px solid white;
-}
+

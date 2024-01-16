@@ -25,8 +25,10 @@
 $string['pluginname'] = 'UCL';
 
 // Block regions.
-$string['region-fullwidth-bottom'] = 'Bottom - full width';
-$string['region-fullwidth-top'] = 'Top - full width';
+// $string['region-fullwidth-bottom'] = 'Bottom - full width';
+// $string['region-fullwidth-top'] = 'Top - full width';
+$string['region-full-t'] = "Top - full width";
+$string['region-full-b'] = "Bottom - full width";
 
 // Settings page strings.
 $string['footer'] = 'Footer';

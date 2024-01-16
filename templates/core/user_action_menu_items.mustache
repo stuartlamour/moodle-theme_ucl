@@ -59,30 +59,13 @@
 }}
 <h5 class="px-3 py-2">{{ output.username }}</h5>
 <hr>
-
-<a href="{{ config.wwwroot }}/my/" class="dropdown-item" role="menuitem" tabindex="-1">Home</a>
-<a href="{{ config.wwwroot }}/my/courses.php" class="dropdown-item" role="menuitem" tabindex="-1">My courses</a>
-
-<hr>
+<!-- TODO - anything we would like to output here? EG home, etc -->
 <!--
-<div role="menuitem" tabindex="-1">
-    <form id="ucl-search" action="{{{ config.wwwroot }}}/search/" method="get" accept-charset="utf-8" class="mform px-3">
-        <div class="input-group">
-            <label for="ucl-searchinput">
-                <span class="sr-only">Search</span>
-            </label>
-            <input type="search" id="ucl-searchinput" class="form-control" placeholder="Search" aria-label="Search" name="q" value="" >
-            <div class="input-group-append">
-                <button type="submit" class="btn  btn-primary">
-                <i class="fa fa-search fa-fw " aria-hidden="true"></i>
-                <span class="sr-only">Search</span>
-            </button>
-            </div>
-        </div>
-    </form>
-</div>
+<a href="{{ config.wwwroot }}/my/" class="dropdown-item" role="menuitem" tabindex="-1">Home</a>
+<a href="{{ config.wwwroot }}/my/courses.php" class="dropdown-item" role="menuitem" tabindex="-1">Courses</a>
 <hr>
 -->
+
 {{#items}}
     {{#link}}
         <a href="{{{url}}}" class="dropdown-item" role="menuitem" tabindex="-1">

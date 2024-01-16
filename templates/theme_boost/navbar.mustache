@@ -40,12 +40,13 @@
     }
 }}
 
-<nav id="ucl-navbar" class="bg-dark">
+{{{ output.mobilemenu }}}
+
+<nav id="ucl-navbar" class="bg-dark d-print-none">
     <div class="container d-flex align-items-center">
 
         <a href="{{{ config.wwwroot }}}/my/" id="ucl-navbar-logo-link" class="d-block">
-            <img class="d-none d-md-block" alt="{{{sitename}}}" src="{{{ config.wwwroot }}}/theme/ucl/pix/headerlogo.svg" />
-            <img class="d-block d-md-none" alt="{{{sitename}}}" src="{{{ config.wwwroot }}}/theme/ucl/pix/headerlogo-small.svg" />
+            <img alt="{{{sitename}}}" src="{{{ config.wwwroot }}}/theme/ucl/pix/headerlogo.svg" />
         </a>
 
 
@@ -56,7 +57,7 @@
 
 
         <div class="ucl-navbar-links ml-auto d-flex align-items-center h-100">
-            <a href="{{{ config.wwwroot }}}/admin/search.php" class="link mx-2" title="Admin"><i class="fa-solid fa-bolt-lightning"></i></a>
+            {{{ output.adminlink }}}
             {{{ output.navbar_plugin_output }}}
             {{{ output.noty }}}
             {{#usermenu}}

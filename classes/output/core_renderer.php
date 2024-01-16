@@ -34,7 +34,6 @@ class theme_ucl_core_renderer extends theme_boost\output\core_renderer {
      *
      * This renderer function is copied and modified from /theme/boost/classes/output/core_renderer.php
      *
-     * @return string the HTML for the navbar.
      */
     public function navbar(): string {
         $newnav = new \theme_ucl\boostnavbar($this->page);
@@ -42,11 +41,25 @@ class theme_ucl_core_renderer extends theme_boost\output\core_renderer {
     }
 
     /**
-     * Return HTML for footer from WYSIWYG editor.
+     * Return mobile menu.
      *
-     * @return string  HTML.
      */
-    public function footer_content() {
+    public function mobilemenu(): string {
+        if (isloggedin()) {
+            $template = new stdClass;
+            if (is_siteadmin()) {
+                $template->adminlink = true;
+            }
+            return $this->render_from_template('theme_ucl/mobilemenu', $template);
+        }
+        return '';
+    }
+
+    /**
+     * Return html for footer from WYSIWYG editor.
+     *
+     */
+    public function footer_content(): string {
         global $PAGE;
         $footer = empty($PAGE->theme->settings->footer) ? '' : $PAGE->theme->settings->footer;
         return format_text($footer, FORMAT_HTML, ['noclean' => true]);
@@ -55,7 +68,6 @@ class theme_ucl_core_renderer extends theme_boost\output\core_renderer {
     /**
      * Return html template with footer metadata.
      *
-     * @return string
      */
     public function footermetadata(): string {
         $template = new stdClass;
@@ -75,13 +87,12 @@ class theme_ucl_core_renderer extends theme_boost\output\core_renderer {
         $template->supportemail = $this->supportemail();
         $template->login_info = $this->login_info();
 
-        return $this->render_from_template('theme_boost/footer-metadata', $template);
+        return $this->render_from_template('theme_ucl/footer/footer-metadata', $template);
     }
 
     /**
      * Return html template with front page hero.
      *
-     * @return string
      */
     public function frontpagehero(): string {
         global $SITE;
@@ -89,13 +100,45 @@ class theme_ucl_core_renderer extends theme_boost\output\core_renderer {
         $template = new stdClass();
         $template->name = $SITE->fullname;
         $template->description = html_to_text(format_string($SITE->summary, true));
-        return $this->render_from_template('theme_ucl/hero', $template);
+        $template->welcome = $this->uclwelcome();
+
+        return $this->render_from_template('theme_ucl/frontpage-hero', $template);
     }
 
-        /**
+    /**
+     * Return welcome string in different languages.
+     *
+     */
+    public function uclwelcome(): string {
+        $w = [
+            "i mirëpritur",
+            "באַגריסן",
+            "أهلا بك",
+            "欢迎",
+            "ようこそ",
+            "환영",
+            "स्वागत हे",
+            "خوش آمدی",
+            "hosgeldiniz",
+            "स्वागत हे",
+            "chào mừng",
+            "yá'át'ééh",
+            "welina",
+            "croeso",
+            "välkommen",
+            "fáilte",
+            "καλως ΗΡΘΑΤΕ",
+            "welkom",
+            "velkommen",
+            "добро пожаловать",
+
+        ];
+        return $w[array_rand($w)];
+    }
+
+    /**
      * Return html template with course page hero.
      *
-     * @return string
      */
     public function courseheader(): string {
         global $COURSE;
@@ -117,16 +160,23 @@ class theme_ucl_core_renderer extends theme_boost\output\core_renderer {
             $template->hasprogress = true;
         }
 
+        // Read only.
+        $context = context_course::instance($COURSE->id);
+        if ($context->is_locked()) {
+            $template->readonly = true;
+        }
+
         // Actions (bulk edit).)
         $template->headeractions = $this->page->get_header_actions();
 
         return $this->render_from_template('theme_ucl/course-header', $template);
     }
 
-
-
-
-    public function noty() {
+    /**
+     * Return html template with user notifications.
+     *
+     */
+    public function noty(): string {
         global $USER, $DB;
         $user = $USER;
 
@@ -180,6 +230,7 @@ class theme_ucl_core_renderer extends theme_boost\output\core_renderer {
 
     /**
      * Return user notifications.
+     *
      * @param Object $user
      * @return array  user notifications.
      */
@@ -205,9 +256,40 @@ class theme_ucl_core_renderer extends theme_boost\output\core_renderer {
         return $notifications;
     }
 
-    public function username() {
+    /**
+     * Return fullname for use in template via output.username
+     *
+     */
+    public function username(): string {
         global $USER;
         return fullname($USER);
     }
+
+     /**
+     * Return admin link.
+     *
+     */
+    public function adminlink(): string {
+        if (is_siteadmin()) {
+            return $this->render_from_template('theme_ucl/adminmenu',[]);
+        }
+        return  '';
+    }
+
+    /**
+     * Return html for user menu in the site footer.
+     *
+     */
+    public function footerusermenu(): string {
+        global $USER;
+        if (isloggedin()) {
+            $template = new stdClass();
+            $template->fullname = fullname($USER);
+            return $this->render_from_template('theme_ucl/footer/footer-usermenu', $template);
+        }
+        return '';
+    }
+
+
 
 }

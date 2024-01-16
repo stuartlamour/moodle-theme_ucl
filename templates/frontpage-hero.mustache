@@ -19,28 +19,33 @@
     @template theme_ucl/hero
     Example context (json):
     {
+        "welcome": "welcome string",
         "name": "site name",
         "description": "site descrition"
     }
 }}
 
-{{! UCL Hero element. }}
+{{! UCL front page hero element. }}
 <div id="ucl-hero" class="full-width py-5">
-    <div id="ucl-hero-content" class="container d-flex">
-        <div class="d-flex flex-column align-self-center fadeInUp">
+    <div id="ucl-hero-content" class="container">
 
-            <h1 class="h1 display-1 font-weight-bold">{{{name}}}</h1>
-
-            <p>
-                <a class="btn btn-lg btn-primary" href="{{ config.wwwroot }}/login/">
-                UCL login
-                <i class="fa-solid fa-arrow-right transition"></i>
-                </a>
-                <br>
-                <a class="btn btn-lg btn-link text-dark" href="{{ config.wwwroot }}/login/?altlogin=1">
-                Guest access
-                </a>
-            </p>
+        {{! Welcome string. }}
+        <div class="h1 text-muted text-capitalize">
+            {{#welcome}} {{.}} {{/welcome}}
         </div>
+
+        {{! Site name. }}
+        <h1 class="display-1">{{{name}}}</h1>
+        <p class="lead">{{ description }}</p>
+
+        {{! Login links. }}
+        <a class="text-blue" style="font-size: 3rem; font-weight: bold;" href="{{ config.wwwroot }}/login/">
+            <i class="mr-2 fa-solid fa-circle-arrow-right"></i>UCL login
+        </a>
+        <br>
+        <br>
+        <a class="" href="{{ config.wwwroot }}/login/?altlogin=1">
+            <i class="mr-1 fa-solid fa-circle-user"></i>Guest access
+        </a>
     </div>
 </div>

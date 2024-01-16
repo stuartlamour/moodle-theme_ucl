@@ -27,15 +27,15 @@
 
 /* Animation transitions. */
 .transition {
-    transition: all 1s cubic-bezier(0.4, 0, 0.2, 1);
-}
-
-.transition-quick {
     transition: all .5s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
+.transition-quick {
+    transition: all .25s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
 .transition-slow {
-    transition: all 2s cubic-bezier(0.4, 0, 0.2, 1);
+    transition: all 1s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 
@@ -95,6 +95,10 @@
 }
 
 /* Background colors. */
+.bg-purple {
+    background-color: $purple;
+}
+
 .bg-yellow {
     background-color: $yellow;
 }
@@ -112,11 +116,20 @@
 
 /* Text colors. */
 .text-yellow {
-    color: $yellow;
+    color: $yellow !important;
 }
 .text-pink {
-    color: $pink;
+    color: $pink !important;
 }
 .text-green {
-    color: $green;
+    color: $green !important;
+}
+.text-bright-blue {
+    color: $bright-blue !important;
+}
+
+/* Box utilities. */
+.brutalbox {
+    box-shadow: .3em .3em 0 0 $dark;
+    border: 2px solid $dark;
 }

@@ -22,12 +22,12 @@ $util-dark:     #1a1a1a;
 $body-color: $util-dark;
 $headings-color: $body-color;
 
-$primary:   $util-blue; // N.B. - overwriten in norse.
+$primary:   $util-blue;
 $secondary: #e6e6e6;
 $success:   $util-green;
 $warning:   $yellow;
 $danger:    $util-red;
-$info:      $bright-blue;
+$info:      $util-blue;
 $light:     #F3F4F6;
 $dark:      $util-dark;
 
@@ -82,7 +82,7 @@ $activity-icon-colors: map-merge(
 );
 
 /* Moodle vars. */
-$navbar-height: 72px;
+$navbar-height: 72px; // Moodle needs this in px for drawers, but we overwrite with rem in navbar.scss for responsive design.
 $course-content-maxwidth: 1140px;
 $h5p-content-maxwidth: 1140px;
 
@@ -102,6 +102,7 @@ $small-font-size: 80%;
 
 $headings-font-weight: 700;
 $display-font-weight: 700;
+$font-weight-bold: 500;
 
 // Progress.
 $progress-height: .4rem;
@@ -165,8 +166,8 @@ $modal-content-inner-border-radius: 0;
 $modal-content-box-shadow-xs:       .3em .3em 0 0 $body-color;
 $modal-content-box-shadow-sm-up:    .3em .3em 0 0 $body-color;
 
-$modal-backdrop-bg:                 darken($link-hover-color, 30%);
-$modal-backdrop-opacity:            .666;
+$modal-backdrop-bg:                 white;
+$modal-backdrop-opacity:            .9;
 
 $modal-xl:                          1140px !default;
 $modal-lg:                          800px !default;

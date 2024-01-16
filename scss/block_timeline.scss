@@ -39,6 +39,7 @@
         /* Use btn-link for filter buttons. */
         .btn-outline-secondary {
             @extend .btn-link;
+            color: $primary !important;
             border-color: transparent !important;
             background-color: transparent !important;
         }
@@ -87,7 +88,7 @@
         /* Add dots for timeline. */
         &:before {
             content: "";
-            background-color: $bright-blue;
+            background-color: $pink;
             width: 24px;
             height: 24px;
             display: block;
@@ -116,7 +117,9 @@
         }
 
         /* Don't truncate the text. */
+        .event-name,
         .text-truncate {
+            overflow: visible; // Don't truncate - for accessability.
             white-space: normal;
         }
 

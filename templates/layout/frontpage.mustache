@@ -57,18 +57,19 @@
 
    {{{ output.standard_top_of_body_html }}}
 
-   {{> theme_boost/navbar }}
+    {{> theme_boost/navbar }}
 
     <div id="page" data-region="mainpage" data-usertour="scroller" class="drawers drag-container">
         <div id="topofscroll" class="main-inner">
 
             {{! UCL dashboard block regions. }}
             <div class="row">
-                <div class="col-12" id="main-content">
+                <div class="col-12">
+                    {{{ output.main_content }}}
                     {{! Front page hero element. }}
                     {{{ output.frontpagehero }}}
 
-                    <!-- {{{ output.main_content }}} -->
+
                 </div>
 
                 {{#hasheaderblocks}}

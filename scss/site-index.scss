@@ -13,8 +13,21 @@
 
     // Page Hero element.
     #ucl-hero {
+        background-image: linear-gradient(rgba($light, 1) .1em, transparent .1em), linear-gradient(90deg, rgba($light, 1) .1em, transparent .1em);
+        background-size: 1.5rem 1.5rem;
+        min-height: 30rem;
+        /*
         background: url([[pix:theme|graph-paper]]) center no-repeat;
         background-size: cover;
+        */
+        /*
+        background: url([[pix:theme|bg]]) center no-repeat;
+        background-size: cover;
+        */
+        /*
+        background: linear-gradient(45deg, $bright-blue, $yellow, $green,  $pink,  $purple, $pink, $green, $yellow, $bright-blue) 0 0 / 400% 100%;
+        animation: movebg 60s linear infinite;
+        */
 
         #ucl-hero-content {
             background: url([[pix:theme|home]])  center right no-repeat;
@@ -29,10 +42,13 @@
 
         /* Animated text gradiant background. */
         h1 {
-            background: linear-gradient(45deg, $dark, $pink,  $purple, #AA00FF, $pink, $pink, $purple, $dark) 0 0 / 400% 100%;
+            font-weight: 700;
+            /*
+            background: linear-gradient(45deg, $dark, $pink,  $purple, #AA00FF, $pink, $purple, $dark) 0 0 / 400% 100%;
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             animation: movebg 60s linear infinite;
+            */
         }
 
         @keyframes movebg {
@@ -49,6 +65,7 @@
             }
             &:hover,
             &:focus {
+                @extend .brutalbox;
                 i {
                     margin-right: 0;
                     margin-left: .5rem;

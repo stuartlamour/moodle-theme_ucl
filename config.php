@@ -51,14 +51,14 @@ $THEME->layouts = array(
     // The site home page.
     'frontpage' => [
         'file' => 'frontpage.php',
-        'regions' => ['fullwidth-top'],
-        'defaultregion' => 'fullwidth-top',
+        'regions' => ['full-t'],
+        'defaultregion' => 'full-t',
         'options' => ['nonavbar' => true],
     ],
     // Dashboard page.
     'mydashboard' => [
         'file' => 'mydashboard.php',
-        'regions' => ['fullwidth-top', 'fullwidth-bottom', 'side-pre'],
+        'regions' => ['full-t', 'full-b', 'side-pre'],
         'defaultregion' => 'side-pre',
         'options' => ['nonavbar' => true, 'langmenu' => true],
     ],

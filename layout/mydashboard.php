@@ -39,10 +39,10 @@ if (defined('BEHAT_SITE_RUNNING') && get_user_preferences('behat_keep_drawer_clo
 
 $blockshtml = $OUTPUT->blocks('side-pre');
 $hasblocks = (strpos($blockshtml, 'data-block=') !== false || !empty($addblockbutton));
-$headerblockshtml = $OUTPUT->blocks('fullwidth-top');
+$headerblockshtml = $OUTPUT->blocks('full-t');
 $hasheaderblocks = (strpos($headerblockshtml, 'data-block=') !== false || !empty($addblockbutton));
 
-$footerblockshtml = $OUTPUT->blocks('fullwidth-bottom');
+$footerblockshtml = $OUTPUT->blocks('full-b');
 $hasfooterblocks = (strpos($footerblockshtml, 'data-block=') !== false || !empty($addblockbutton));
 
 $bodyattributes = $OUTPUT->body_attributes($extraclasses);

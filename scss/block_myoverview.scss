@@ -2,23 +2,36 @@
 * UCL block_myoverview scss.
 */
 
+.page-mycourses {
+    #page-header {
+        padding-top: 1rem;
+    }
+}
 /* Courses overview block. */
 .block_myoverview.block {
 
+    .card-title {
+        display: none !important;
+    }
+
+    hr {
+        display: none;
+    }
+
     .dashboard-card-deck {
         /* Overwrite width, so 4 is minimum. */
-        @include media-breakpoint-up(md) {
+        @include media-breakpoint-up(lg) {
             &:not(.fixed-width-cards) {
                 .dashboard-card {
-                    min-width: calc(33.3% - 1rem);
+                    width: calc(25% - 1rem) !important;
                 }
             }
         }
 
-        @include media-breakpoint-up(lg) {
+        @include media-breakpoint-up(md) {
             &:not(.fixed-width-cards) {
                 .dashboard-card {
-                    min-width: calc(25% - 1rem);
+                    width: calc(33.3% - 1rem);
                 }
             }
         }
@@ -28,6 +41,15 @@
             box-shadow: none !important;
             padding: 0;
             margin: 1rem .5rem;
+
+            /* Hidden and read only badges. */
+            .bg-cover {
+                text-align: right;
+
+                .badge-pill {
+                    border: 1px solid $dark;
+                }
+            }
 
             .stretched-link,
             .categoryname {

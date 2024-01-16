@@ -1,0 +1,91 @@
+/*
+* UCL block_pickup scss.
+*/
+
+.block_pickup.block {
+    @extend .full-width;
+    background-color: rgba($yellow, 1);
+    .card-text.mt-3 {
+        margin-top: 0 !important;
+    }
+
+    #block-pickup-content {
+        a {
+            color: $body-color;
+            font-weight: 500;
+
+            &:hover,
+            &:focus {
+                text-decoration: underline;
+            }
+        }
+
+        .stretched-link {
+            color: $body-color;
+
+            &:hover,
+            &:focus {
+                color: $link-hover-color;
+            }
+        }
+
+        .pickup-container{
+            padding: 0 .5rem;
+        }
+
+        /* Hover states. */
+        .pickup-card {
+            @extend .fadeInUp;
+            border: 1px solid $dark;
+            &:hover {
+                box-shadow: 3px 10px 10px -6px rgba($pink, 0.5);
+                .pickup-card-image {
+                    transform: scale(1.03);
+                }
+            }
+        }
+
+        div.pickup-container:nth-of-type(4) .pickup-card {
+            animation-duration: 1s;
+        }
+        div.pickup-container:nth-of-type(3) .pickup-card {
+            animation-duration: .66s;
+        }
+        div.pickup-container:nth-of-type(2) .pickup-card {
+            animation-duration: .33s;
+        }
+        div.pickup-container:nth-of-type(1) .pickup-card {
+            animation-duration: .01s;
+        }
+
+        @include media-breakpoint-down(md) {
+            .d-flex {
+                display: block !important;
+                .pickup-card-imageholder {
+                    float: left;
+                    width: 100px;
+                    margin-right: 1rem;
+                }
+            }
+        }
+
+        /*  Tabs. */
+        .nav-link {
+            border-radius: 0;
+            border: 2px solid $dark;
+
+            &.active {
+                background-color: $dark;
+                color: $yellow;
+                text-decoration: none !important;
+            }
+
+            &:hover,
+            &:focus {
+                @extend .brutalbox;
+                background-color: $pink;
+                color: $yellow;
+            }
+        }
+    }
+}

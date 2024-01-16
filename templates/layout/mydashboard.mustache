@@ -81,22 +81,8 @@
                 <section class="col-lg-4" aria-label="{{#str}}blocks{{/str}}">
                     {{{ addblockbutton }}}
                     {{{ sidepreblocks }}}
-
-
-                <div class="py-3">
-                    <form action="{{ config.wwwroot }}/course/search.php" method="get" accept-charset="utf-8">
-                        <h4 id="course-search-form-label">Search course catalogue</h4>
-                        <div class="input-group py-2">
-                            <input type="search" name="q" placeholder="Course title" class="form-control" aria-labelledby="ourse-search-form-label"/>
-                            <button type="submit" class="btn btn-primary">Search</button>
-                        </div>
-                    </form>
-                    <div class="text-right"><a href="{{ config.wwwroot }}/course/">Browse course catalogue</a></div>
-                </div>
                 </section>
                 {{/hasblocks}}
-
-
 
                 {{#hasfooterblocks}}
                 <section class="col-12" aria-label="{{#str}}blocks{{/str}}">

@@ -19,6 +19,10 @@
             }
         }
 
+        .logininfo a {
+            padding-right: 0; // No padding for logout link.
+        }
+
         /* SHAME - some moodle links are in divs, so inline them. */
         div {
             display: inline-block;
