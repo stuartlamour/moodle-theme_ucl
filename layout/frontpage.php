@@ -43,7 +43,7 @@ if ($courseindexopen) {
     $extraclasses[] = 'drawer-open-index';
 }
 
-$headerblockshtml = $OUTPUT->blocks('f-top');
+$headerblockshtml = $OUTPUT->blocks('full-b');
 $hasheaderblocks = (strpos($headerblockshtml, 'data-block=') !== false || !empty($addblockbutton));
 
 $blockshtml = $OUTPUT->blocks('side-pre');
@@ -103,8 +103,6 @@ $templatecontext = [
     'addblockbutton' => $addblockbutton,
     'headerblocks' => $headerblockshtml,
     'hasheaderblocks' => $hasheaderblocks,
-    'hasfooterblocks' => $hasfooterblocks,
-    'footerblocks' => $footerblockshtml,
 ];
 
 echo $OUTPUT->render_from_template('theme_ucl/layout/frontpage', $templatecontext);

@@ -51,8 +51,8 @@ $THEME->layouts = array(
     // The site home page.
     'frontpage' => [
         'file' => 'frontpage.php',
-        'regions' => ['full-t'],
-        'defaultregion' => 'full-t',
+        'regions' => ['full-b'],
+        'defaultregion' => 'full-b',
         'options' => ['nonavbar' => true],
     ],
     // Dashboard page.
