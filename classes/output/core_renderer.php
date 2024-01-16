@@ -178,8 +178,12 @@ class theme_ucl_core_renderer extends theme_boost\output\core_renderer {
      */
     public function noty(): string {
         global $USER, $DB;
-        $user = $USER;
 
+        if (!isloggedin()) {
+            return '';
+        }
+
+        $user = $USER;
         // Notifications.
         $notifications = $this->get_user_notifications($user);
         $unread = 0;
