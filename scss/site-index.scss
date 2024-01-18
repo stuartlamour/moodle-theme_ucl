@@ -16,21 +16,9 @@
         background-image: linear-gradient(rgba($light, 1) .1em, transparent .1em), linear-gradient(90deg, rgba($light, 1) .1em, transparent .1em);
         background-size: 1.5rem 1.5rem;
         min-height: 30rem;
-        /*
-        background: url([[pix:theme|graph-paper]]) center no-repeat;
-        background-size: cover;
-        */
-        /*
-        background: url([[pix:theme|bg]]) center no-repeat;
-        background-size: cover;
-        */
-        /*
-        background: linear-gradient(45deg, $bright-blue, $yellow, $green,  $pink,  $purple, $pink, $green, $yellow, $bright-blue) 0 0 / 400% 100%;
-        animation: movebg 60s linear infinite;
-        */
 
         #ucl-hero-content {
-            background: url([[pix:theme|home]])  center right no-repeat;
+            background: url([[pix:theme|hero]])  center right no-repeat;
             background-size: contain;
             min-height: 350px;
 

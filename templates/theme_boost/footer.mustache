@@ -27,11 +27,17 @@
 
             <div class="col-4 text-right">
                 <form action="{{ config.wwwroot }}/course/search.php" method="get" accept-charset="utf-8">
-                <div class="input-group py-2">
-                <input type="search" name="q" placeholder="Search courses" class="form-control" aria-labelledby="course-search-form-label"/>
-                <button type="submit" class="btn btn-warning text-dark">Search</button>
-                </div>
+                    <div class="input-group py-2">
+                        <input type="search" name="q" placeholder="Search courses" class="form-control" aria-labelledby="course-search-form-label"/>
+                        <button type="submit" class="btn btn-warning text-dark">Search</button>
+                    </div>
                 </form>
+
+                <form action="{{ config.wwwroot }}/search/index.php" method="post" accept-charset="utf-8">
+                    <div class="input-group py-2">
+                        <input type="search" name="q" placeholder="Search moodle" class="form-control" aria-labelledby="course-search-form-label"/>
+                        <button type="submit" class="btn btn-warning text-dark">Search</button>
+                    </div>
             </div>
         </div>
 
