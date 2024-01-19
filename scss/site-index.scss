@@ -28,39 +28,10 @@
             }
         }
 
-        /* Animated text gradiant background. */
         h1 {
             font-weight: 700;
-            /*
-            background: linear-gradient(45deg, $dark, $pink,  $purple, #AA00FF, $pink, $purple, $dark) 0 0 / 400% 100%;
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            animation: movebg 60s linear infinite;
-            */
         }
 
-        @keyframes movebg {
-            to {
-                background-position: 400% 0;
-            }
-        }
-        /* Fancy login button. */
-        .btn-primary {
-            background-color: $pink;
-            border-color: $pink;
-            i {
-                margin: 0 .25rem;
-            }
-            &:hover,
-            &:focus {
-                @extend .brutalbox;
-                i {
-                    margin-right: 0;
-                    margin-left: .5rem;
-                    color: $yellow;
-                }
-            }
-        }
     }
 
     // Remove padding, this is shown but empty.
