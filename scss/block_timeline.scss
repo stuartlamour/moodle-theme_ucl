@@ -34,6 +34,7 @@
     .block-timeline .pb-3.px-2.border-bottom {
         display: none;
     }
+
     .block-timeline .row.no-gutters {
 
         /* Use btn-link for filter buttons. */
@@ -110,6 +111,11 @@
         border: none !important;
         background-color: transparent;
         margin-left: 2rem;
+
+        /* Time, align top. */
+        .timeline-name small.align-self-center {
+            align-self: auto !important;
+        }
 
         /* Activity details. */
         .event-name-container {

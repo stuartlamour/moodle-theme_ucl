@@ -5,13 +5,16 @@
 .block_pickup.block {
     @extend .full-width;
     background-color: rgba($yellow, 1);
-    .card-text.mt-3 {
-        margin-top: 0 !important;
+
+    // Reduce margin on small screen.
+    @include media-breakpoint-down(md) {
+        .card-text.mt-3 {
+            margin-top: 0 !important;
+        }
     }
 
     #block-pickup-content {
         a {
-            color: $body-color;
             font-weight: 500;
 
             &:hover,
@@ -36,7 +39,6 @@
         /* Hover states. */
         .pickup-card {
             @extend .fadeInUp;
-            border: 1px solid $dark;
             &:hover {
                 box-shadow: 3px 10px 10px -6px rgba($pink, 0.5);
                 .pickup-card-image {
@@ -70,21 +72,22 @@
         }
 
         /*  Tabs. */
+        $orange: #f94706;
         .nav-link {
             border-radius: 0;
+            color: $dark;
             border: 2px solid $dark;
 
             &.active {
                 background-color: $dark;
-                color: $yellow;
+                color: white;
                 text-decoration: none !important;
             }
 
             &:hover,
             &:focus {
-                @extend .brutalbox;
-                background-color: $pink;
-                color: $yellow;
+                background-color: $dark;
+                color: white;
             }
         }
     }
