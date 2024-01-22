@@ -294,6 +294,17 @@ class theme_ucl_core_renderer extends theme_boost\output\core_renderer {
         return '';
     }
 
+     /**
+     * Return template of courseindex header with course name and image via output.courseindexheader
+     *
+     */
+    public function courseindexheader(): string {
+        global $COURSE;
 
-
+        $template = new stdClass();
+        $template->name = $COURSE->fullname;
+        $template->id = $COURSE->id;
+        $template->image = course_summary_exporter::get_course_image($COURSE);
+        return $this->render_from_template('theme_ucl/courseindex-header', $template);
+    }
 }

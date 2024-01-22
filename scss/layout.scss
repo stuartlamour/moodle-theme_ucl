@@ -78,6 +78,7 @@ body {
     .drawer-toggles .drawer-toggler {
         position: absolute;
         top: 1rem !important;
+        z-index: 333;
     }
 }
 
@@ -94,6 +95,12 @@ body {
     .breadcrumb:not(:empty) {
         background-color: white;
         padding: 1rem 0;
+        /* Flex to allow for course image. */
+        .breadcrumb-item,
+        .breadcrumb-item a {
+            display: flex;
+            align-items: center;
+        }
     }
 }
 
@@ -101,17 +108,15 @@ body {
 .userinitials {
     background-color: $dark;
     color: white;
-    border: 2px solid $white;
+    border: 2px solid white;
     margin: 0;
 }
 .userloggedinas .userinitials {
     background-color: $dark !important;
     color: white !important;
-    border: 2px solid white;
 }
 .userpicture {
     border-radius: 100%;
-    border: 1px solid white;
 }
 
 

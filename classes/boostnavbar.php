@@ -16,13 +16,7 @@
 
 namespace theme_ucl;
 
-/*
-use core\navigation\views\view;
-use navigation_node;
-use moodle_url;
-use action_link;
-use lang_string;
-*/
+use core_course\external\course_summary_exporter;
 
 /**
  * Breadcrumbe for UCL which dosn't remove Sections.
@@ -38,7 +32,7 @@ class boostnavbar extends \theme_boost\boostnavbar {
 
 
     /**
-     * UCL Change - don't remove Sections from breadcrumb.
+     * UCL Change - don't remove Sections from breadcrumb, add course image.
      *
      * Remove items that have no actions associated with them and optionally remove items that are sections.
      *
@@ -47,13 +41,18 @@ class boostnavbar extends \theme_boost\boostnavbar {
      * @param bool $removesections Whether section items should be also removed (only applies when they have an action)
      */
     protected function remove_no_link_items(bool $removesections = true): void {
+        global $COURSE;
+
         foreach ($this->items as $key => $value) {
             if (!$value->is_last() && !$value->has_action()) {
                 unset($this->items[$key]);
             }
+
+            // Add icon to course link.
+            if ($value->type == \navigation_node::TYPE_COURSE) {
+                $value->image = course_summary_exporter::get_course_image($COURSE);
+            }
         }
         $this->items = array_values($this->items);
     }
-
-
 }
