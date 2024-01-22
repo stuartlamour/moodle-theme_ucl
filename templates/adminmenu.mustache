@@ -15,8 +15,20 @@
     along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 }}
 
-{{! TODO - link for now, but make into a menu. }}
 
-<a href="{{{ config.wwwroot }}}/admin/search.php" class="link mx-2" title="Admin">
-<i class="fa-solid fa-bolt-lightning"></i>
-</a>
+<div class="dropdown">
+  <button class="btn nav-link dropdown-toggle" type="button" id="admindropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" title="Admin">
+    <i class="fa-solid fa-bolt-lightning"></i>
+  </button>
+  <div class="dropdown-menu dropdown-menu-right" style="min-width: 320px;"  aria-labelledby="admindropdown">
+    <h5 class="p-3">Site administration</h5>
+    <hr>
+    <a class="dropdown-item" href="{{{ config.wwwroot }}}/admin/search.php">Site administration</a>
+    <a class="dropdown-item" href="{{{ config.wwwroot }}}/admin/search.php#linkusers">Users</a>
+    <a class="dropdown-item" href="{{{ config.wwwroot }}}//admin/roles/manage.php">Define roles</a>
+    <a class="dropdown-item" href="{{{ config.wwwroot }}}/admin/search.php#linkcourses">Courses</a>
+    <a class="dropdown-item" href="{{{ config.wwwroot }}}//course/management.php">Manage courses and catagories</a>
+    <a class="dropdown-item" href="{{{ config.wwwroot }}}/admin/search.php#linkmodules">Plugins</a>
+    <a class="dropdown-item" href="{{{ config.wwwroot }}}/ucl_tools/">UCL tools</a>
+  </div>
+</div>
