@@ -59,12 +59,9 @@
 }}
 <h5 class="px-3 py-2">{{ output.username }}</h5>
 <hr>
-<!-- TODO - anything we would like to output here? EG home, etc -->
-<!--
-<a href="{{ config.wwwroot }}/my/" class="dropdown-item" role="menuitem" tabindex="-1">Home</a>
-<a href="{{ config.wwwroot }}/my/courses.php" class="dropdown-item" role="menuitem" tabindex="-1">Courses</a>
-<hr>
--->
+{{! Admin links when admin. }}
+{{{ output.adminmenu }}}
+{{! TODO - anything we would like to output here? EG home, etc }}
 
 {{#items}}
     {{#link}}

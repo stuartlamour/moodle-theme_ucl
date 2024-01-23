@@ -270,10 +270,10 @@ class theme_ucl_core_renderer extends theme_boost\output\core_renderer {
     }
 
      /**
-     * Return admin link.
+     * Return admin menu as part of user menu..
      *
      */
-    public function adminlink(): string {
+    public function adminmenu(): string {
         if (is_siteadmin()) {
             return $this->render_from_template('theme_ucl/adminmenu',[]);
         }
