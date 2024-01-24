@@ -41,11 +41,17 @@ $THEME->requiredblocks = '';
 $THEME->addblockposition = BLOCK_ADDBLOCK_POSITION_FLATNAV;
 $THEME->iconsystem = \core\output\icon_system::FONTAWESOME;
 $THEME->haseditswitch = true;
-$THEME->usescourseindex = true;
+// Set to flase, so moodle outputs activity navigation.
+$THEME->usescourseindex = false;
 // By default, all boost theme do not need their titles displayed.
 $THEME->activityheaderconfig = [
     'notitle' => true
 ];
+
+// Add class to arrows, so they can be removed with css.
+$THEME->larrow = "<span class='larrow'>◀</span>";
+$THEME->rarrow = "<span class='rarrow'>▶</span>";
+
 
 $THEME->layouts = array(
     // The site home page.

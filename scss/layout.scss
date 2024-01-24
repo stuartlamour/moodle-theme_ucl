@@ -4,7 +4,7 @@ body #ucl-navbar *:focus-visible {
     outline: 2px solid currentColor;
 }
 /* Mouse click. */
-*:focus:not(:focus-visible) {
+a:focus:not(:focus-visible) {
     outline: none !important;
     background-color: transparent;
     box-shadow: none;
@@ -155,6 +155,53 @@ body {
 // Blocks.
 .block-add {
     border: 1px solid $primary !important;
+}
+
+// Drawers.
+.drawer {
+    .drawerheader {
+        box-shadow: none !important;
+    }
+    // Course index.
+    .courseindex {
+        // Current item.
+        .courseindex-item.pageitem {
+            color: $dark;
+            border-left: 2px solid $primary;
+            background-color: rgba($primary, .1);
+            // SHAME - overwite colours of highlighted item link.
+            a {
+                color: $dark !important;
+                &:hover,
+                &:focus {
+                    color: $link-hover-color !important;
+                }
+            }
+        }
+    }
+}
+// Disable 'hightlighted' pageitem from scrolling on course page.
+.path-course {
+    .drawer {
+        .courseindex {
+            // Current item.
+            .courseindex-item.pageitem {
+                background-color: transparent;
+                color: $dark;
+                border-left-color: transparent;
+            }
+        }
+    }
+}
+
+// Incourse Next / previous mod links.
+#ucl-section-navigation {
+    // Hide arrows added by moodle.
+    .larrow,
+    .rarrow {
+        display: none;
+    }
+
 }
 
 
