@@ -86,6 +86,7 @@ class theme_ucl_core_renderer extends theme_boost\output\core_renderer {
         $template->page_doc_link = $this->page_doc_link();
         $template->supportemail = $this->supportemail();
         $template->login_info = $this->login_info();
+        $template->year = date("Y");
 
         return $this->render_from_template('theme_ucl/footer/footer-metadata', $template);
     }

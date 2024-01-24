@@ -9,6 +9,17 @@
         color: white;
     }
 
+    // Footer search.
+    #ucl-footer-search {
+        // Toggle submit button based on selected option.
+        &:has(option[value="course"]:checked) #ucl-footer-search-course {
+            display: inline-block !important;
+        }
+        &:has(option[value="all"]:checked) #ucl-footer-search-all {
+            display:  inline-block !important;
+        }
+    }
+
     #footer-metadata {
         a {
             padding-right: .5rem; // Space on inline links.
