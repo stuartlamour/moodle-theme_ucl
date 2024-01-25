@@ -102,7 +102,7 @@ $templatecontext = [
     'overflow' => $overflow,
     'headercontent' => $headercontent,
     'addblockbutton' => $addblockbutton,
-    'hasfakeblocks' => $hasfakeblocks
+    'hasfakeblocks' => $hasfakeblocks,
 ];
 
 echo $OUTPUT->render_from_template('theme_ucl/layout/incourse', $templatecontext);
