@@ -36,7 +36,7 @@ $plugin->component = 'theme_ucl';
 
 // This is a list of plugins, this plugin depends on (and their versions).
 $plugin->dependencies = [
-    'theme_boost' => 2022011000
+    'theme_boost' => 2022011000,
 ];
 
 // This is a stable release.
