@@ -14,8 +14,6 @@
 // You should have received a copy of the GNU General Public License
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
-defined('MOODLE_INTERNAL') || die();
-
 use core_course\external\course_summary_exporter;
 
 /**
@@ -25,6 +23,7 @@ use core_course\external\course_summary_exporter;
  * @copyright 2023 Stuart Lamour
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
+
 class theme_ucl_core_renderer extends theme_boost\output\core_renderer {
 
     /**
@@ -276,7 +275,7 @@ class theme_ucl_core_renderer extends theme_boost\output\core_renderer {
      */
     public function adminmenu(): string {
         if (is_siteadmin()) {
-            return $this->render_from_template('theme_ucl/adminmenu',[]);
+            return $this->render_from_template('theme_ucl/adminmenu', []);
         }
         return  '';
     }
@@ -295,8 +294,8 @@ class theme_ucl_core_renderer extends theme_boost\output\core_renderer {
         return '';
     }
 
-     /**
-     * Return template for courseindex with course name and image via output.courseindexheader
+    /**
+     * Return template for courseindex with course name and image via output.courseindexheader.
      *
      */
     public function courseindexheader(): string {
