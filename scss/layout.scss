@@ -1,34 +1,3 @@
-/* Focus. */
-body div#page *:not(.btn):focus-visible,
-body #ucl-navbar *:focus-visible {
-    outline: 2px solid currentColor;
-}
-/* Mouse click. */
-a:not(.btn):focus:not(:focus-visible) {
-    outline: none !important;
-    background-color: transparent;
-    box-shadow: none;
-    color: $link-hover-color;
-}
-
-/* TODO - turn off nasty moodle focus things...*/
-[role="button"]:focus,
-a.dropdown-toggle:focus,
-a:not([class]):focus,
-a:focus,
-.aalink:focus,
-.arrow_link:focus {
-    box-shadow: none;
-    background-color: transparent;
-    color: $link-hover-color;
-}
-
-/* Screen reader only focusable. */
-div#page .sr-only:focus-visible {
-    background-color: white;
-}
-
-
 html,
 body {
     height: auto;
