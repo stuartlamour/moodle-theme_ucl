@@ -14,9 +14,9 @@
 // You should have received a copy of the GNU General Public License
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
-defined('MOODLE_INTERNAL') || die();
-
 namespace theme_ucl\output\core;
+
+defined('MOODLE_INTERNAL') || die();
 
 use coursecat_helper;
 use core_course_list_element;

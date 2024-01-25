@@ -40,6 +40,7 @@ class boostnavbar extends \theme_boost\boostnavbar {
      *
      * @param bool $removesections Whether section items should be also removed (only applies when they have an action)
      */
+
     protected function remove_no_link_items(bool $removesections = true): void {
         global $COURSE;
 
