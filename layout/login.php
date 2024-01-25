@@ -24,14 +24,13 @@ defined('MOODLE_INTERNAL') || die();
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 
- /* UCL Change. */
-/* UCL Login redirect. */
+// UCL Login redirect.
 global $CFG;
 $ssoconfig = get_config('theme_ucl', 'ssoenableredirecttoaad');
 if ($ssoconfig) {
     /* Redirect login page to single sign on, unless altlogin is passed. */
     $ucllogin = new moodle_url($CFG->wwwroot.'/auth/oidc/');
-    $altlogin = optional_param('altlogin', array(), PARAM_INT);
+    $altlogin = optional_param('altlogin', [], PARAM_INT);
     if (!$altlogin) {
         header('Location: '.$ucllogin);
     }

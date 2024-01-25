@@ -15,7 +15,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * INcourse layout for UCL theme.
+ * Incourse layout for UCL theme.
  *
  * @package   theme_ucl
  * @copyright 2023 Stuart Lamour
