@@ -167,7 +167,7 @@ class theme_ucl_core_renderer extends theme_boost\output\core_renderer {
             $template->readonly = true;
         }
 
-        // Actions (bulk edit).)
+        // Actions (bulk edit).
         $template->headeractions = $this->page->get_header_actions();
 
         return $this->render_from_template('theme_ucl/course-header', $template);
@@ -210,7 +210,7 @@ class theme_ucl_core_renderer extends theme_boost\output\core_renderer {
 
             // Notification images.
             // This can be stored as string/array in customdata field.
-            // {"notificationiconurl":"http:\/\/localhost:8888\/moodle381\/pluginfile.php\/37\/badges\/badgeimage\/1\/f1","hash":"9eb3e61db121d003e0be0c268c838ab9958f1f3a","courseid":"4"}
+            // {"notificationiconurl":"http:\/\/localhost:8888\/moodle381\/pluginfile.php\/37\/badges\/badgeimage\/1\/f1","hash":"9eb3e61db121d003e0be0c268c838ab9958f1f3a","courseid":"4"}.
             $customdata = json_decode($n->customdata, true);
             // If we are in a mod notification, use the course image and mod icon.
             if ($customdata['courseid']) {
@@ -270,7 +270,7 @@ class theme_ucl_core_renderer extends theme_boost\output\core_renderer {
         return fullname($USER);
     }
 
-     /**
+    /**
      * Return admin link via output.adminmenu
      *
      */
