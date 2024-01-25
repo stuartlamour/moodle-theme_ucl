@@ -15,7 +15,7 @@
     along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 }}
 
-<a id="backtotop" class="btn btn-dark"
+<a id="backtotop" class="btn btn-dark d-none"
     href="#"
     style="position: fixed; bottom: 1em; right: 1em; z-index: 1;">
     <span class="animate-enter"><i class="fa-solid fa-arrow-up mr-1"></i>
@@ -26,8 +26,6 @@
 {{#js}}
 require(['jquery'], function($) {
 
-    let backtotop = document.getElementById('backtotop');
-    backtotop.style.display = 'none';
     window.onscroll = function() {
         scrollFunction();
     };
@@ -40,9 +38,9 @@ require(['jquery'], function($) {
 
     function scrollFunction() {
         if (document.body.scrollTop > 200 || document.documentElement.scrollTop > 200) {
-            backtotop.style.display = 'block';
+            $("#backtotop").removeClass('d-none');
         } else {
-            backtotop.style.display = 'none';
+            $("#backtotop").addClass('d-none');
         }
     }
 });
