@@ -31,9 +31,10 @@
                     }
                 }
             }
-
-            .content.course-content-item-content {
-                margin-left: 3rem;
+            @include media-breakpoint-up(md) {
+                .content.course-content-item-content {
+                    margin-left: 3rem;
+                }
             }
         }
     }
@@ -58,6 +59,10 @@
         }
     }
 
+    .activity-item:not(.activityinline) {
+        border-radius: $border-radius;
+        border: 1px solid $secondary;
+    }
     /* Activity link. */
     .activityname {
         font-weight: 500;
@@ -67,6 +72,7 @@
     .activity-add {
         margin-bottom: 0 !important;
     }
+
     // Add a topic.
     .changenumsections {
         border-top: none;

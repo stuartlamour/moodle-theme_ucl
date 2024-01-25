@@ -145,7 +145,7 @@
     }
 
     /* Display filter. */
-    #displaydropdown {
+    .dropdown:has(#displaydropdown) {
         display: none;
     }
 }

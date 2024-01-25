@@ -21,6 +21,10 @@
 .message-app {
     background-color: transparent !important;
 
+    .closewidget.text-right.pr-2 {
+        display: none;
+    }
+
     // SHAME - Moodle uses hidden class.
     .btn.hidden {
         display: none;
