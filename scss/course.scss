@@ -97,3 +97,96 @@
         }
     }
 }
+
+/* Course catalogue/listing pages. */
+#page-course-index-category {
+    /* Select options - limit width. */
+    #action_bar.tertiary-navigation .navitem {
+        max-width: 300px;
+    }
+
+    /* Category name. */
+    .categoryname {
+        padding: 0 !important;
+        margin: .25rem 0;
+        font-size: 1.25rem;
+        font-weight: 500;
+        background-image: none;
+        &:before {
+            font: var(--fa-font-solid);
+            content: "\f0c8"; // Default icon.
+            margin: .5rem;
+        }
+    }
+
+    /* Expandable cats. */
+    .category.with_children > .info > {
+        .categoryname {
+            &:before {
+                cursor: pointer;
+                font: var(--fa-font-regular);
+                content: "\f146";
+            }
+            &:hover:before {
+                color: $link-color;
+            }
+        }
+    }
+
+    /* Collapsed, so expand icon. */
+    .course_category_tree .category.with_children.collapsed > .info > .categoryname:before {
+        content: "\f0fe";
+    }
+
+    /* Indent subcategories. */
+    .category {
+        .subcategories {
+            margin-left: 1rem;
+        }
+    }
+
+    /* Courses in a cat. */
+    .courses.category-browse {
+        border-bottom: 2px solid;
+        padding: 1rem 0;
+        margin-bottom: 1rem;
+    }
+}
+
+/* Search courses results page. */
+#page-course-search {
+    .coursebox {
+        border: none;
+        padding: .25rem 0;
+        margin: 0;
+    }
+}
+
+/* Course enrol page. */
+#page-enrol-index,
+#page-course-info {
+    /* Hide moodle output, we output UCL things instead. */
+    #page-header {
+        display: none;
+    }
+    #maincontent + h2 {
+        display: none;
+    }
+    /* Initials circle. */
+    .size-50 {
+        width: 50px;
+        height: 50px;
+    }
+    /* Enrol box. */
+    @include media-breakpoint-up(lg) {
+        /* Enrol box. */
+        .generalbox {
+            width: 60%;
+        }
+        /* Course contacts. */
+        .ucl-course-contacts {
+            width: 33%;
+            float: right;
+        }
+    }
+}

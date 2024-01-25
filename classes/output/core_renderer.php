@@ -234,7 +234,7 @@ class theme_ucl_core_renderer extends theme_boost\output\core_renderer {
     }
 
     /**
-     * Return user notifications.
+     * Get user notifications.
      *
      * @param Object $user
      * @return array  user notifications.
@@ -271,7 +271,7 @@ class theme_ucl_core_renderer extends theme_boost\output\core_renderer {
     }
 
      /**
-     * Return admin menu as part of user menu..
+     * Return admin link via output.adminmenu
      *
      */
     public function adminmenu(): string {
@@ -296,7 +296,7 @@ class theme_ucl_core_renderer extends theme_boost\output\core_renderer {
     }
 
      /**
-     * Return template of courseindex header with course name and image via output.courseindexheader
+     * Return template for courseindex with course name and image via output.courseindexheader
      *
      */
     public function courseindexheader(): string {
@@ -307,5 +307,23 @@ class theme_ucl_core_renderer extends theme_boost\output\core_renderer {
         $template->id = $COURSE->id;
         $template->image = course_summary_exporter::get_course_image($COURSE);
         return $this->render_from_template('theme_ucl/courseindex-header', $template);
+    }
+
+    /**
+     * Get course academic year from custom course fields.
+     *
+     * @param int $courseid
+     */
+    public function get_course_academic_year(int $courseid): string {
+        $academicyear = '';
+        $handler = \core_course\customfield\course_handler::create();
+        $data = $handler->get_instance_data($courseid, true);
+        foreach ($data as $dta) {
+            if ($dta->get_field()->get('shortname') === "course_year") {
+                $academicyear = !empty($dta->get_value()) ? $dta->get_value() : null;
+            }
+        }
+
+        return $academicyear;
     }
 }

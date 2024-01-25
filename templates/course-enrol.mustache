@@ -1,0 +1,60 @@
+{{!
+    This file is part of Moodle - http://moodle.org/
+
+    Moodle is free software: you can redistribute it and/or modify
+    it under the terms of the GNU General Public License as published by
+    the Free Software Foundation, either version 3 of the License, or
+    (at your option) any later version.
+
+    Moodle is distributed in the hope that it will be useful,
+    but WITHOUT ANY WARRANTY; without even the implied warranty of
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+    GNU General Public License for more details.
+
+    You should have received a copy of the GNU General Public License
+    along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
+}}
+{{!
+    @template theme_ucl/course-enrol
+}}
+
+{{! Course enrol page template. }}
+
+<div class="row pb-3">
+    {{#courseimage}}
+    <div class="col-lg-6 bg-cover" style="background-image: url('{{{courseimage}}}'); height: 280px;"></div>
+    {{/courseimage}}
+    <div class="col-lg p-3 p-lg-5">
+        <h1>{{{ fullname }}}</h1>
+    </div>
+    <div class="col-12 py-3">
+        <div>{{{ coursesummary }}}</div>
+        <hr>
+    </div>
+</div>
+
+{{#coursecontacts}}
+<div class="ucl-course-contacts p-3 mb-5">
+    <h3>Course contacts</h3>
+        {{#hasleader}}
+        <h4>Leader</h4>
+        {{/hasleader}}
+        {{#leader}}
+            {{> theme_ucl/course-contact }}
+        {{/leader}}
+
+        {{#hastutor}}
+        <h4>Tutor</h4>
+        {{/hastutor}}
+        {{#tutor}}
+            {{> theme_ucl/course-contact }}
+        {{/tutor}}
+
+        {{#hasadmin}}
+        <h4>Course administrator</h4>
+        {{/hasadmin}}
+        {{#admin}}
+            {{> theme_ucl/course-contact }}
+        {{/admin}}
+</div>
+{{/coursecontacts}}
