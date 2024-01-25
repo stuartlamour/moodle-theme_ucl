@@ -35,7 +35,7 @@ $THEME->scss = function($theme) {
     return theme_ucl_get_main_scss_content($theme);
 };
 $THEME->enable_dock = false;
-$THEME->yuicssmodules = array();
+$THEME->yuicssmodules = [];
 $THEME->rendererfactory = 'theme_overridden_renderer_factory';
 $THEME->requiredblocks = '';
 $THEME->addblockposition = BLOCK_ADDBLOCK_POSITION_FLATNAV;
@@ -45,7 +45,7 @@ $THEME->haseditswitch = true;
 $THEME->usescourseindex = false;
 // By default, all boost theme do not need their titles displayed.
 $THEME->activityheaderconfig = [
-    'notitle' => true
+    'notitle' => true,
 ];
 
 // Add class to arrows, so they can be removed with css.
@@ -53,7 +53,7 @@ $THEME->larrow = "<span class='larrow'>◀</span>";
 $THEME->rarrow = "<span class='rarrow'>▶</span>";
 
 
-$THEME->layouts = array(
+$THEME->layouts = [
     // The site home page.
     'frontpage' => [
         'file' => 'frontpage.php',
@@ -76,10 +76,10 @@ $THEME->layouts = array(
         'options' => ['langmenu' => true],
     ],
     // Part of course, typical for modules.
-    'incourse' => array(
+    'incourse' => [
         'file' => 'incourse.php',
-        'regions' => array('side-pre'),
+        'regions' => ['side-pre'],
         'defaultregion' => 'side-pre',
-    ),
-);
+    ],
+];
 
