@@ -4,7 +4,7 @@ body #ucl-navbar *:focus-visible {
     outline: 2px solid currentColor;
 }
 /* Mouse click. */
-a:focus:not(:focus-visible) {
+a:not(.btn):focus:not(:focus-visible) {
     outline: none !important;
     background-color: transparent;
     box-shadow: none;
