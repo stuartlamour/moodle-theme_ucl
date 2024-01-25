@@ -215,7 +215,7 @@ class theme_ucl_core_renderer extends theme_boost\output\core_renderer {
             if ($customdata['courseid']) {
                 // Has a course!
                 // Use course image and mod as icon...
-                $course = $DB->get_record('course', array('id' => $customdata['courseid']));
+                $course = $DB->get_record('course', ['id' => $customdata['courseid']]);
                 $notification->image = course_summary_exporter::get_course_image($course);
             }
 
@@ -255,7 +255,7 @@ class theme_ucl_core_renderer extends theme_boost\output\core_renderer {
         // Limit to last 1 months.
 
         $since = strtotime('-1 month');
-        $notifications = $DB->get_records_sql($sql, array('userid' => $user->id, 'since' => $since));
+        $notifications = $DB->get_records_sql($sql, ['userid' => $user->id, 'since' => $since]);
 
         return $notifications;
     }
