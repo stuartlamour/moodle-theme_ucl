@@ -45,7 +45,7 @@ $THEME->haseditswitch = true;
 $THEME->usescourseindex = false;
 // By default, all boost theme do not need their titles displayed.
 $THEME->activityheaderconfig = [
-    'notitle' => true,
+    'notitle' => true
 ];
 
 // Add class to arrows, so they can be removed with css.

@@ -24,7 +24,8 @@ defined('MOODLE_INTERNAL') || die();
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 
-// UCL Change - redirect login.
+ /* UCL Change. */
+/* UCL Login redirect. */
 global $CFG;
 $ssoconfig = get_config('theme_ucl', 'ssoenableredirecttoaad');
 if ($ssoconfig) {
@@ -41,8 +42,7 @@ $bodyattributes = $OUTPUT->body_attributes();
 $templatecontext = [
     'sitename' => format_string($SITE->shortname, true, ['context' => context_course::instance(SITEID), "escape" => false]),
     'output' => $OUTPUT,
-    'bodyattributes' => $bodyattributes,
+    'bodyattributes' => $bodyattributes
 ];
 
 echo $OUTPUT->render_from_template('theme_boost/login', $templatecontext);
-
