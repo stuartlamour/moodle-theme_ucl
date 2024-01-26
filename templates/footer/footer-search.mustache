@@ -6,8 +6,8 @@
 
                 <label for="ucl-footer-search-input" class="sr-only">Search term</label>
                 <input id="ucl-footer-search-input" type="text" name="q" placeholder="Search" class="form-control text-body" required />
-                <label for="ucl-footer-search-select" class="sr-only">Search area</label>
 
+                <label for="ucl-footer-search-select" class="sr-only">Search area</label>
                 <select id="ucl-footer-search-select" class="btn btn-warning text-dark text-left custom-select" required>
                     <option value="" selected disabled>search area</option>
                     <option value="ucl-footer-search-course">for a Course</option>
@@ -17,9 +17,9 @@
             </div>
             <div id="ucl-footer-search-form-submit">
 
-                <button id="ucl-footer-search-all" type="submit" formaction="{{ config.wwwroot }}/search/index.php"  class="btn btn-warning text-dark d-none" disabled >UCL Moodle</button>
+                <button id="ucl-footer-search-all" type="submit" formaction="{{ config.wwwroot }}/search/index.php"  class="btn btn-warning text-dark d-none" disabled >Submit</button>
 
-                <button id="ucl-footer-search-course" type="submit" formaction="{{ config.wwwroot }}/course/search.php"  class="btn btn-warning text-dark d-none" disabled >for a Course</button>
+                <button id="ucl-footer-search-course" type="submit" formaction="{{ config.wwwroot }}/course/search.php"  class="btn btn-warning text-dark d-none" disabled >Submit</button>
 
             </div>
         </fieldset>
@@ -31,8 +31,7 @@ require(['jquery'], function($) {
     /* Footer search form js. */
    $('#ucl-footer-search-select').on('change', function() {
         $('#ucl-footer-search-form-submit :input').prop("disabled", true);
-        $input = $('#'+this.value);
-        $input.prop("disabled", false);
+        $('#'+this.value).prop("disabled", false);
    });
 
 });
