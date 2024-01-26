@@ -33,7 +33,7 @@ $addblockbutton = $OUTPUT->addblockbutton();
 if (defined('BEHAT_SITE_RUNNING') && get_user_preferences('behat_keep_drawer_closed') != 1) {
     $blockdraweropen = true;
 }
-
+$courseindexopen = false;
 $extraclasses = ['uses-drawers'];
 if ($courseindexopen) {
     $extraclasses[] = 'drawer-open-index';
@@ -96,7 +96,6 @@ $templatecontext = [
     'mobileprimarynav' => $primarymenu['mobileprimarynav'],
     'usermenu' => $primarymenu['user'],
     'langmenu' => $primarymenu['lang'],
-    'forceblockdraweropen' => $forceblockdraweropen,
     'regionmainsettingsmenu' => $regionmainsettingsmenu,
     'hasregionmainsettingsmenu' => !empty($regionmainsettingsmenu),
     'overflow' => $overflow,
