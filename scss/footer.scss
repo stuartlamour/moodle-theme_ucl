@@ -12,10 +12,10 @@
     // Footer search.
     #ucl-footer-search {
         // Toggle submit button based on selected option.
-        &:has(option[value="course"]:checked) #ucl-footer-search-course {
+        &:has(option[value="ucl-footer-search-course"]:checked) #ucl-footer-search-course {
             display: inline-block !important;
         }
-        &:has(option[value="all"]:checked) #ucl-footer-search-all {
+        &:has(option[value="ucl-footer-search-all"]:checked) #ucl-footer-search-all {
             display:  inline-block !important;
         }
     }

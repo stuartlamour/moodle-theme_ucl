@@ -27,27 +27,7 @@
                 <img style="height: 3.5rem;"  alt="" src="{{ config.wwwroot }}/theme/ucl/pix/headerlogo.svg" />
             </div>
 
-            <div id="ucl-footer-search" class="col-md-4 text-right">
-                <form id="ucl-footer-search-form" role="search" method="get" accept-charset="utf-8">
-                    <fieldset>
-                        <legend class="text-left h5">Search UCL Moodle</legend>
-                        <div class="input-group py-2">
-                            <label for="ucl-footer-search-input" class="sr-only">Search term</label>
-                            <input id="ucl-footer-search-input" type="text" name="q" placeholder="Search" class="form-control text-body" required />
-                            <label for="ucl-footer-search-select" class="sr-only">Search area</label>
-                            <select id="ucl-footer-search-select" class="btn btn-warning text-dark text-left custom-select" required>
-                                <option value="" selected disabled>search area</option>
-                                <option value="course">for a Course</option>
-                                <option value="all">UCL Moodle</option>
-                            </select>
-                        </div>
-
-                        <button id="ucl-footer-search-course" type="submit" formaction="{{ config.wwwroot }}/course/search.php"  class="btn btn-warning text-dark d-none">Submit</button>
-
-                        <button id="ucl-footer-search-all" type="submit" formaction="{{ config.wwwroot }}/search/index.php"  class="btn btn-warning text-dark d-none">Submit</button>
-                    </fieldset>
-                </form>
-            </div>
+            {{> theme_ucl/footer/footer-search }}
         </div>
 
         <div class="row">
@@ -59,5 +39,6 @@
 
     </div>
 </footer>
+
 
 {{{ output.standard_end_of_body_html }}}

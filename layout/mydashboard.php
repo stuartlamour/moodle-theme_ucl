@@ -46,8 +46,9 @@ $hasheaderblocks = (strpos($headerblockshtml, 'data-block=') !== false || !empty
 $footerblockshtml = $OUTPUT->blocks('full-b');
 $hasfooterblocks = (strpos($footerblockshtml, 'data-block=') !== false || !empty($addblockbutton));
 
+$extraclasses[] = '';
 $bodyattributes = $OUTPUT->body_attributes($extraclasses);
-$forceblockdraweropen = $OUTPUT->firstview_fakeblocks();
+$forceblockdraweropen = false;
 
 $secondarynavigation = false;
 $overflow = '';
@@ -77,9 +78,7 @@ $templatecontext = [
     'sidepreblocks' => $blockshtml,
     'hasblocks' => $hasblocks,
     'bodyattributes' => $bodyattributes,
-    'courseindexopen' => $courseindexopen,
     'blockdraweropen' => $blockdraweropen,
-    'courseindex' => $courseindex,
     'primarymoremenu' => $primarymenu['moremenu'],
     'secondarymoremenu' => $secondarynavigation ?: false,
     'mobileprimarynav' => $primarymenu['mobileprimarynav'],
