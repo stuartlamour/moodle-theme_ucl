@@ -196,7 +196,6 @@ class course_renderer extends \core_course_renderer {
             $cat = core_course_category::get($course->category, IGNORE_MISSING);
             $template->coursecategory = $cat->get_formatted_name();
             $template->caturl = new moodle_url('/course/index.php', array('categoryid' => $cat->id));
-            https://moodle.ucl.ac.uk/course/index.php?categoryid=1599
             /* Academic year. */
             $template->year = $OUTPUT->get_course_academic_year($course->id);
         }

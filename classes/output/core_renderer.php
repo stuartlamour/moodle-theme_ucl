@@ -313,7 +313,7 @@ class theme_ucl_core_renderer extends theme_boost\output\core_renderer {
      *
      * @param int $courseid
      */
-    public function get_course_academic_year(int $courseid): string {
+    public function get_course_academic_year(int $courseid): ?string {
         $academicyear = '';
         $handler = \core_course\customfield\course_handler::create();
         $data = $handler->get_instance_data($courseid, true);
