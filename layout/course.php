@@ -29,11 +29,11 @@ require_once($CFG->dirroot . '/course/lib.php');
 
 // Add block button in editing mode.
 $addblockbutton = $OUTPUT->addblockbutton();
+$courseindexopen = false;
 
 if (isloggedin()) {
     $blockdraweropen = (get_user_preferences('drawer-open-block') == true);
 } else {
-    $courseindexopen = false;
     $blockdraweropen = false;
 }
 
