@@ -59,8 +59,7 @@ class theme_ucl_core_renderer extends theme_boost\output\core_renderer {
      *
      */
     public function footer_content(): string {
-        global $PAGE;
-        $footer = empty($PAGE->theme->settings->footer) ? '' : $PAGE->theme->settings->footer;
+        $footer = empty($this->page->theme->settings->footer) ? '' : $this->page->theme->settings->footer;
         return format_text($footer, FORMAT_HTML, ['noclean' => true]);
     }
 
