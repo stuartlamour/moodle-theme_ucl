@@ -5,7 +5,7 @@
             <div class="input-group py-2">
 
                 <label for="ucl-footer-search-input" class="sr-only">Search term</label>
-                <input id="ucl-footer-search-input" type="text" name="q" placeholder="Search" class="form-control text-body" required />
+                <input id="ucl-footer-search-input" type="text" name="q" placeholder="Search" class="form-control text-body" required>
 
                 <label for="ucl-footer-search-select" class="sr-only">Search area</label>
                 <select id="ucl-footer-search-select" class="btn btn-warning text-dark text-left custom-select" required>
@@ -31,7 +31,7 @@ require(['jquery'], function($) {
     /* Footer search form js. */
    $('#ucl-footer-search-select').on('change', function() {
         $('#ucl-footer-search-form-submit :input').prop("disabled", true);
-        $('#'+this.value).prop("disabled", false);
+        $('#' + this.value).prop("disabled", false);
    });
 
 });
