@@ -80,7 +80,7 @@
 
 </div>
 
-<!-- Persist on click etc... -->
+{{! Persist on click etc. }}
 {{#js}}
 require(['jquery', 'core/ajax'], function($, Ajax) {
 
@@ -91,7 +91,7 @@ require(['jquery', 'core/ajax'], function($, Ajax) {
     });
 
     $('#ucl-notifications-dropdown').on('hide.bs.dropdown', function(e) {
-        if ( $(this).hasClass('persist') ){
+        if ($(this).hasClass('persist')){
             e.preventDefault();
         }
         $(this).removeClass('persist');
@@ -102,7 +102,7 @@ require(['jquery', 'core/ajax'], function($, Ajax) {
         $(this).addClass('d-none');
 
         // Get the id form data-id.
-        id = $(this).attr('data-id')
+        var id = $(this).attr('data-id');
         var args = {
             notificationid: id,
         };
@@ -111,17 +111,16 @@ require(['jquery', 'core/ajax'], function($, Ajax) {
             args: args
         };
 
-        Ajax.call([request])[0].then(function(response) {
+        Ajax.call([request])[0].then(function() {
             // Remove unread notifications class.
-            $('#notification-'+id).removeClass('notification-unread');
-            $('#notification-'+id).removeClass('bg-light');
+            $('#notification-' + id).removeClass('notification-unread');
+            $('#notification-' + id).removeClass('bg-light');
             // Reduce unread notifications badges.
-            count = $('#ucl-notifications-count').text() -1;
+            var count = $('#ucl-notifications-count').text() -1;
             $('#ucl-notifications-count').html(count);
             if(!count) {
                 $('#ucl-notifications-dropdown .count-container').remove();
             }
-
         });
     });
 
@@ -137,7 +136,7 @@ require(['jquery', 'core/ajax'], function($, Ajax) {
             args: args
         };
 
-        Ajax.call([request])[0].then(function(response) {
+        Ajax.call([request])[0].then(function() {
             // Remove unread notifications class.
             $('.usermenu-notification').removeClass('notification-unread');
             $('.usermenu-notification').removeClass('bg-light');

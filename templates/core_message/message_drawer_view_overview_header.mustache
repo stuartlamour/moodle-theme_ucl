@@ -54,13 +54,13 @@
 {{#js}}
     require(['jquery'], function($) {
         // Close messaging button.
-        $("#message-drawer-close").on("click", function(){
-            $("#drawer-{{uniqid}}").addClass("hidden").attr("aria-expanded","false").attr("aria-hidden","true");
+        $("#message-drawer-close").on("click", function() {
+            $("#drawer-{{uniqid}}").addClass("hidden").attr("aria-expanded", "false").attr("aria-hidden", "true");
             event.preventDefault();
         });
 
         // Focus.
-        $("[id^=message-drawer-toggle]").on("click", function(){
+        $("[id^=message-drawer-toggle]").on("click", function() {
             $("#message-drawer-title").focus();
         });
     });
