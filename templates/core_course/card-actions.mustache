@@ -25,8 +25,7 @@
         type="button"
         aria-pressed="true"
         data-action="remove-favourite"
-        data-course-id="{{id}}"
-        aria-controls="favorite-icon-{{ id }}-{{ uniqid }}">
+        data-course-id="{{id}}">
             <i class="fa fa-star mr-2" aria-hidden="true"></i>
             <small>Favorite</small>
             <span class="sr-only">{{#str}} aria:removefromfavourites, block_myoverview {{/str}} {{{fullname}}}</span>
@@ -36,8 +35,7 @@
         type="button"
         aria-pressed="flase"
         data-action="add-favourite"
-        data-course-id="{{id}}"
-        aria-controls="favorite-icon-{{ id }}-{{ uniqid }}">
+        data-course-id="{{id}}">
             <i class="fa fa-star-o mr-2" aria-hidden="true"></i>
             <small>Favorite</small>
             <span class="sr-only">{{#str}} aria:addtofavourites, theme_ucl {{/str}} {{{fullname}}}</span>
@@ -51,8 +49,7 @@
             <button class="{{^hidden}}hidden{{/hidden}} d-flex align-items-center btn btn-blue show-course"
                 type="button"
                 data-action="show-course"
-                data-course-id="{{id}}"
-                aria-controls="favorite-icon-{{ id }}-{{ uniqid }}">
+                data-course-id="{{id}}">
                     <i class="fa fa-eye mr-2" aria-hidden="true"></i>
                     <small>{{#str}} show, block_myoverview {{/str}} <span class="sr-only">{{{fullname}}}</span></small>
             </button>
@@ -61,8 +58,7 @@
                 type="button"
                 aria-pressed="flase"
                 data-action="hide-course"
-                data-course-id="{{id}}"
-                aria-controls="favorite-icon-{{ id }}-{{ uniqid }}">
+                data-course-id="{{id}}">
                     <i class="fa fa-eye-slash mr-2"  aria-hidden="true"></i>
                     <small>Hide</small>
                     <span class="sr-only">{{#str}} aria:hidecourse, theme_ucl, {{fullname}} {{/str}}</span>
@@ -74,13 +70,13 @@
 
 {{#js}}
 require(['jquery'], function($) {
-    $('.remove-favourite').unbind().click(function(e) {
+    $('.remove-favourite').unbind().click(function() {
         const $el = $(this);
         const id = $el.data('course-id');
 
         $(`.dashboard-card[data-course-id=${id}]`).toggleClass('starred');
     });
-    $('.add-favourite').unbind().click(function(e) {
+    $('.add-favourite').unbind().click(function() {
         const $el = $(this);
         const id = $el.data('course-id');
 
