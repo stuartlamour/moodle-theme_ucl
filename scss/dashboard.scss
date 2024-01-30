@@ -28,8 +28,8 @@
         }
     }
 
-   .block_timeline.block,
-   #block-region-side-pre {
+    .block_timeline.block,
+    #block-region-side-pre {
 
         .card-title {
             display: inline-block !important;
@@ -41,22 +41,22 @@
         .card-body {
             padding: 0 !important;
         }
-   }
+    }
 
-   .block_news.block {
-       @extend .full-width;
-       background-color: $light !important;
-       margin-bottom: 0 !important;
-       margin-top: 2rem;
+    .block_news.block {
+        @extend .full-width;
+        background-color: $light !important;
+        margin-bottom: 0 !important;
+        margin-top: 2rem;
 
         .card-body {
             @extend .container;
         }
 
         .card-title {
-           display: inline-block !important;
-           font-size: $h3-font-size;
-           @extend .py-2;
+            display: inline-block !important;
+            font-size: $h3-font-size;
+            @extend .py-2;
         }
     }
 }
