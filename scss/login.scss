@@ -1,0 +1,23 @@
+/*
+* UCL login.
+*/
+#page-login-index {
+    background-image: linear-gradient(rgba($light, 1) .1em, transparent .1em), linear-gradient(90deg, rgba($light, 1) .1em, transparent .1em);
+    background-size: 1.5rem 1.5rem;
+
+    #page {
+        background: transparent !important;
+    }
+    .login-wrapper {
+        display: block;
+        @extend .container;
+        background: url([[pix:theme|hero]])  center right no-repeat;
+        background-size: 66%;
+        min-height: 350px;
+    }
+
+    .login-container {
+        box-shadow: .3em .3em 0 0 $dark !important;
+        border: 2px solid $dark !important;
+    }
+}
