@@ -93,7 +93,7 @@ class course_renderer extends \core_course_renderer {
                         $template->hasadmin = true;
                       break;
                     default:
-                      // Do nothing.
+                        // Do nothing.
                 }
             }
         }
@@ -229,7 +229,7 @@ class course_renderer extends \core_course_renderer {
         }
 
         // Courses.
-        if ($chelper->get_show_courses() > course_renderer::COURSECAT_SHOW_COURSES_COUNT) {
+        if ($chelper->get_show_courses() > self::COURSECAT_SHOW_COURSES_COUNT) {
             $courses = array();
             if (!$chelper->get_courses_display_option('nodisplay')) {
                 $courses = $coursecat->get_courses($chelper->get_courses_display_options());
