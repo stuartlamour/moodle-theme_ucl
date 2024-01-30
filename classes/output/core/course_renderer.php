@@ -174,7 +174,7 @@ class course_renderer extends \core_course_renderer {
      * @return string
      */
     protected function course_name(coursecat_helper $chelper, core_course_list_element $course): string {
-        // Template for outputing course as a list iteam.
+        // Template for outputing course as a list item.
         $template = new stdClass();
         $template->fullname = $course->fullname;
         $template->image = course_summary_exporter::get_course_image($course);
@@ -205,7 +205,7 @@ class course_renderer extends \core_course_renderer {
         return $this->render_from_template('theme_ucl/courselink', $template);
     }
 
-     /**
+    /**
      * Altered to output courses before sub-catagories.
      *
      * Returns HTML to display the subcategories and courses in the given category

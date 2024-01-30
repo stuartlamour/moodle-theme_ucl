@@ -146,7 +146,7 @@ class theme_ucl_core_renderer extends theme_boost\output\core_renderer {
     public function noty(): string {
         global $USER, $DB;
 
-        if (!isloggedin() or isguestuser()) {
+        if (!isloggedin() || isguestuser()) {
             return '';
         }
 
@@ -253,7 +253,7 @@ class theme_ucl_core_renderer extends theme_boost\output\core_renderer {
      */
     public function footerusermenu(): string {
         global $USER;
-        if (isloggedin() and !isguestuser()) {
+        if (isloggedin() && !isguestuser()) {
             $template = new stdClass();
             $template->fullname = fullname($USER);
             return $this->render_from_template('theme_ucl/footer/footer-usermenu', $template);
