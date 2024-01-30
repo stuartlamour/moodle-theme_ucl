@@ -174,7 +174,6 @@ class course_renderer extends \core_course_renderer {
      * @return string
      */
     protected function course_name(coursecat_helper $chelper, core_course_list_element $course): string {
-        global $OUTPUT;
         // Template for outputing course as a list iteam.
         $template = new stdClass();
         $template->fullname = $course->fullname;
@@ -189,15 +188,18 @@ class course_renderer extends \core_course_renderer {
         $template->enrolmenticons = $this->course_enrolment_icons($course);
 
         // Check if we are in search.
-        $search = optional_param('q', 0, PARAM_RAW);
-        if ($search) {
+        $q = optional_param('q', '', PARAM_RAW); // Search words.
+        $search = optional_param('search', '', PARAM_RAW);  // Search words.
+        if ($search or $q) {
             $template->search = true;
             // Add extra data for search.
             $cat = core_course_category::get($course->category, IGNORE_MISSING);
-            $template->coursecategory = $cat->get_formatted_name();
-            $template->caturl = new moodle_url('/course/index.php', array('categoryid' => $cat->id));
+            if ($cat) {
+                $template->coursecategory = $cat->get_formatted_name();
+                $template->caturl = new moodle_url('/course/index.php', array('categoryid' => $cat->id));
+            }
             /* Academic year. */
-            $template->year = $OUTPUT->get_course_academic_year($course->id);
+            $template->year = $this->output->get_course_academic_year($course->id);
         }
 
         return $this->render_from_template('theme_ucl/courselink', $template);
