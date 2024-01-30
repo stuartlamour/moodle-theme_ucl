@@ -26,7 +26,7 @@ $navbar-height: 4.5rem; // Moodle needs this in px for drawers, but we overwrite
 
     /* Logo. */
     #ucl-navbar-logo-link img {
-        height:1.75rem;
+        height: 1.75rem;
 
         // Large screen logo.
         @include media-breakpoint-up(md) {

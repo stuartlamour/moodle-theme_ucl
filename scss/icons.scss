@@ -15,7 +15,7 @@
 }
 
 .f-collaboration {
-    filter: invert(56%) sepia(54%) saturate(1275%) hue-rotate(0deg) brightness(103%) contrast(105%)!important; // Orange.
+    filter: invert(56%) sepia(54%) saturate(1275%) hue-rotate(0deg) brightness(103%) contrast(105%) !important; // Orange.
 }
 
 /* Standard icons. */
@@ -86,7 +86,7 @@
 }
 
 [class*='helixmedia'],
-[class*='hvp']  {
+[class*='hvp'] {
     .activityicon {
         @extend .f-content;
     }

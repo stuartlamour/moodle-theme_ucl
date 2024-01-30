@@ -77,13 +77,13 @@
     .changenumsections {
         border-top: none;
         margin-left: -3rem; // Line up with topic names.
-            .fa-plus {
-                width: 32px;
-                height: 32px;
-                &:before {
-                    content: "\f055";
-                }
+        .fa-plus {
+            width: 32px;
+            height: 32px;
+            &:before {
+                content: "\f055";
             }
+        }
     }
 }
 
@@ -177,7 +177,7 @@
     }
 
     // Style search box.
-    div.simplesearchform  {
+    div.simplesearchform {
         background-color: $light;
         padding: 1rem;
         margin-bottom: 1rem;

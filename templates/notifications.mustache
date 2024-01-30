@@ -91,7 +91,7 @@ require(['jquery', 'core/ajax'], function($, Ajax) {
     });
 
     $('#ucl-notifications-dropdown').on('hide.bs.dropdown', function(e) {
-        if ($(this).hasClass('persist')){
+        if ($(this).hasClass('persist')) {
             e.preventDefault();
         }
         $(this).removeClass('persist');
@@ -118,7 +118,7 @@ require(['jquery', 'core/ajax'], function($, Ajax) {
             // Reduce unread notifications badges.
             var count = $('#ucl-notifications-count').text() -1;
             $('#ucl-notifications-count').html(count);
-            if(!count) {
+            if (!count) {
                 $('#ucl-notifications-dropdown .count-container').remove();
             }
         });

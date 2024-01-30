@@ -18,20 +18,20 @@
     }
 
 
-   /* Block alerts - remove gutters. */
-   .block_alerts.block {
-       margin-bottom: 0 !important;
+    /* Block alerts - remove gutters. */
+    .block_alerts.block {
+        margin-bottom: 0 !important;
 
-       /* Remove y padding. */
-       .card-body {
-           padding: 0 1rem !important;
-       }
-   }
+        /* Remove y padding. */
+        .card-body {
+            padding: 0 1rem !important;
+        }
+    }
 
    .block_timeline.block,
    #block-region-side-pre {
 
-       .card-title {
+        .card-title {
             display: inline-block !important;
             font-size: $h3-font-size;
             margin: 0;
@@ -49,14 +49,14 @@
        margin-bottom: 0 !important;
        margin-top: 2rem;
 
-       .card-body {
+        .card-body {
             @extend .container;
-       }
+        }
 
-       .card-title {
+        .card-title {
            display: inline-block !important;
            font-size: $h3-font-size;
            @extend .py-2;
-       }
-   }
+        }
+    }
 }
