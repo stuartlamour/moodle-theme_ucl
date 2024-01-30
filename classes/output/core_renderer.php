@@ -99,40 +99,8 @@ class theme_ucl_core_renderer extends theme_boost\output\core_renderer {
         $template = new stdClass();
         $template->name = $SITE->fullname;
         $template->description = html_to_text(format_string($SITE->summary, true));
-        $template->welcome = $this->uclwelcome();
 
         return $this->render_from_template('theme_ucl/frontpage-hero', $template);
-    }
-
-    /**
-     * Return welcome string in different languages.
-     *
-     */
-    public function uclwelcome(): string {
-        $w = [
-            "i mirëpritur",
-            "באַגריסן",
-            "أهلا بك",
-            "欢迎",
-            "ようこそ",
-            "환영",
-            "स्वागत हे",
-            "خوش آمدی",
-            "hosgeldiniz",
-            "स्वागत हे",
-            "chào mừng",
-            "yá'át'ééh",
-            "welina",
-            "croeso",
-            "välkommen",
-            "fáilte",
-            "καλως ΗΡΘΑΤΕ",
-            "welkom",
-            "velkommen",
-            "добро пожаловать",
-
-        ];
-        return $w[array_rand($w)];
     }
 
     /**
