@@ -11,6 +11,12 @@
 
     // Footer search.
     #ucl-footer-search {
+        input,
+        .btn {
+            &:focus-visible {
+                outline: 2px solid white;
+            }
+        }
         // Toggle submit button based on selected option.
         &:has(option[value="ucl-footer-search-course"]:checked) #ucl-footer-search-course {
             display: inline-block !important;
