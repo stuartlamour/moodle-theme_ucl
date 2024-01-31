@@ -63,6 +63,7 @@
         border-radius: $border-radius;
         border: 1px solid $secondary;
     }
+
     /* Activity link. */
     .activityname {
         font-weight: 500;
@@ -71,6 +72,10 @@
     /* Editing. */
     .activity-add {
         margin-bottom: 0 !important;
+        &:hover,
+        &:focus {
+            background-color: rgba($primary, .05);
+        }
     }
 
     // Add a topic.
@@ -89,7 +94,6 @@
 
 /* In course mod pages. */
 .path-mod {
-
     /* Add back activity header bg color. */
     .activity-header:not(:empty) {
         background-color: $light;
@@ -100,6 +104,15 @@
         /* Use success btn. */
         .btn-outline-secondary {
             @extend .btn-outline-success;
+        }
+    }
+
+    // Incourse Next / previous mod links.
+    #ucl-section-navigation {
+        // Hide arrows added by moodle.
+        .larrow,
+        .rarrow {
+            display: none;
         }
     }
 }

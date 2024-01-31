@@ -1,45 +1,47 @@
-/* Drawers. */
-#page.drawers {
-    &.show-drawer-right,
-    &.show-drawer-left {
-        margin-left: 0 !important;
-        margin-right: 0 !important;
-    }
-}
+/*
+* UCL Drawers css.
+*/
 
 .drawer {
-    position: absolute;
-    top: 1rem;
-    height: auto;
-    max-height: 95%;
-    margin: 0 1rem;
-    z-index: 1050;
-    box-shadow: 0.3em 0.3em 0 0 #000 !important;
-    // border: 2px solid #000 !important;
-    border-image-source: linear-gradient(to left, $pink, $bright-blue);
-    border: 2px solid;
-    border-image-slice: 1;
-    border-width: 2px;
-}
 
-.drawer.drawer-left {
-    background-color: white;
-    overflow: auto;
+    &.drawer-left,
+    &.drawer-right {
+        top: 0 !important;
+        height: 100vh !important;
+    }
 
-    .drawercontent {
-        height: auto;
-        direction: ltr;
+    .drawerheader {
+        box-shadow: none !important;
+    }
+
+    // Course index.
+    .courseindex {
+        // Current item.
+        .courseindex-item.pageitem {
+            color: $dark;
+            border-left: 2px solid $primary;
+            background-color: rgba($primary, .1);
+            // SHAME - overwite colours of highlighted item link.
+            a {
+                color: $dark !important;
+                &:hover,
+                &:focus {
+                    color: $link-hover-color !important;
+                }
+            }
+        }
     }
 }
-
-.drawer.drawer-right {
-    right: 0;
-    /* Right had drawer - make scrollbar apear on the left. */
-    direction: rtl;
-    overflow: auto;
-
-    .drawercontent {
-        height: auto;
-        direction: ltr;
+// Disable 'hightlighted' pageitem when scrolling on course page.
+.path-course {
+    .drawer {
+        .courseindex {
+            // Current item.
+            .courseindex-item.pageitem {
+                background-color: transparent;
+                color: $dark;
+                border-left-color: transparent;
+            }
+        }
     }
 }
