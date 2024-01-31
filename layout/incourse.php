@@ -30,10 +30,12 @@ require_once($CFG->dirroot . '/course/lib.php');
 // Add block button in editing mode.
 $addblockbutton = $OUTPUT->addblockbutton();
 
-if (defined('BEHAT_SITE_RUNNING') && get_user_preferences('behat_keep_drawer_closed') != 1) {
+$courseindexopen = false;
+$blockdraweropen = false;
+if (defined('BEHAT_SITE_RUNNING')) {
     $blockdraweropen = true;
 }
-$courseindexopen = false;
+
 $extraclasses = ['uses-drawers'];
 if ($courseindexopen) {
     $extraclasses[] = 'drawer-open-index';

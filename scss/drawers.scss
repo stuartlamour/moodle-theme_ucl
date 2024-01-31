@@ -10,6 +10,11 @@
         height: 100vh !important;
     }
 
+    &.drawer-left {
+        background-color: white;
+        border-right: 1px solid $secondary;
+    }
+
     .drawerheader {
         box-shadow: none !important;
     }
@@ -19,7 +24,7 @@
         // Current item.
         .courseindex-item.pageitem {
             color: $dark;
-            border-left: 2px solid $primary;
+            border-left: 1px solid $primary;
             background-color: rgba($primary, .1);
             // SHAME - overwite colours of highlighted item link.
             a {
