@@ -1,0 +1,82 @@
+<div class="p-3 bg-light">
+
+
+
+    <label for="ucl-incourse-search">Search course</label>
+    <input id="ucl-incourse-search" class="form-control" placeholder="Search course" autocomplete="off">
+    <div role="status" aria-live="assertive" aria-relevant="additions">
+        <div id="ucl-incourse-search-count" class="sr-only"></div>
+    </div>
+
+    <div class="position-relative">
+        <div id="ucl-incourse-search-list" class="bg-white mt-1 position-absolute" style="width: 100%; z-index: 999;">
+        {{#mods}}
+            <a href="{{{ url }}}" class="ucl-incourse-search-mod d-none" data-search="{{srinfo}} {{{ formattedname }}}">
+                <div class="py-1 px-3 d-flex align-items-center position-relative">
+                    <img src="{{ iconurl }}" alt="" class="flex-shrink-0 mr-2" style="height: 1.5rem; width: 1.5rem; opacity: .66;">
+                    <div>
+                        <small class="text-muted">{{{sectionname}}}<br></small>
+                        <span class="sr-only">{{srinfo}}</span>
+                        {{{ formattedname }}}
+                    </div>
+                </div>
+            </a>
+        {{/mods}}
+        </div>
+    </div>
+
+</div>
+
+{{#js}}
+require(['jquery'], function($) {
+    $('#ucl-incourse-search').on('input', function() {
+        let searchterm = this.value.toLowerCase();
+
+        if (searchterm.length > 1) {
+            $('.ucl-incourse-search-mod').each(function() {
+                let modname = $(this).data('search').toLowerCase();
+                if (modname.includes(searchterm)) {
+                    $(this).addClass('d-block').removeClass('d-none');
+                }
+                else {
+                    $(this).addClass('d-none').removeClass('d-block');
+                }
+            });
+        }
+        else {
+            $('.ucl-incourse-search-mod').addClass('d-none').removeClass('d-block');
+        }
+
+        let results = $('.ucl-incourse-search-mod:visible').length;
+
+        if (results) {
+            $('#ucl-incourse-search-count').text(results + ' results are available, tab to browse.');
+        }
+        else {
+            $('#ucl-incourse-search-count').text('No results for ' + searchterm);
+        }
+    });
+});
+{{/js}}
+
+{{! TODO - more to scss. }}
+<style>
+.ucl-incourse-search-mod:focus,
+.ucl-incourse-search-mod:focus-visible,
+.ucl-incourse-search-mod:hover {
+    background-color: var(--primary);
+    color: white !important;
+    text-decoration: none;
+    .text-muted {
+        color: white !important;
+    }
+    img {
+        filter: brightness(0) invert(1);
+        opacity: 1 !important;
+    }
+}
+#ucl-incourse-search-list {
+    border: 2px solid var(--light);
+    box-shadow: 3px 10px 10px -6px rgba(172, 20, 90, 0.5);
+}
+</style>

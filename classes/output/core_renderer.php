@@ -272,6 +272,8 @@ class theme_ucl_core_renderer extends theme_boost\output\core_renderer {
         $template->name = $COURSE->fullname;
         $template->id = $COURSE->id;
         $template->image = course_summary_exporter::get_course_image($COURSE);
+
+        $template->modssearch = $this->modsearch();
         return $this->render_from_template('theme_ucl/courseindex-header', $template);
     }
 
@@ -291,5 +293,55 @@ class theme_ucl_core_renderer extends theme_boost\output\core_renderer {
         }
 
         return $academicyear;
+    }
+
+    /**
+     * Return in course mod search.
+     *
+     */
+    public function modsearch(): string {
+        global $COURSE;
+
+        // TODO - is there a better way to do this?
+        $format  = course_get_format($COURSE);
+        $numsections = $format->get_last_section_number();
+
+        if (empty($numsections)) {
+            return ''; // No sections, bye!.
+        }
+
+        $modinfo = get_fast_modinfo($COURSE->id);
+
+        $template = new stdClass();
+
+        foreach ($modinfo->get_cms() as $cm) {
+            // Module outside of number of sections.
+            if ($cm->sectionnum > $numsections) {
+                continue; // Module outside of number of sections.
+            }
+
+            // Ignore course mods with no link.
+            if ($cm->modname == 'label' || $cm->modname == 'structlabel') {
+                continue;
+            }
+
+            // Hidden completely.
+            if (!$cm->uservisible && (empty($cm->availableinfo))) {
+                continue;
+            }
+
+            $mod = new stdClass();
+            $mod->cmid = $cm->id;
+            $mod->iconurl = $cm->get_icon_url();
+            if ($cm->modname !== 'resource') {
+                $mod->srinfo = get_string('pluginname', $cm->modname);
+            }
+            $mod->url = new moodle_url($cm->url, array('forceview' => 1));
+            $mod->sectionname = get_section_name($COURSE->id, $cm->sectionnum);
+            $mod->formattedname = $cm->get_formatted_name();
+            $template->mods[] = $mod;
+        }
+
+        return $this->render_from_template('theme_ucl/course-search-mods', $template);
     }
 }

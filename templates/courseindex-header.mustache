@@ -25,10 +25,12 @@
     }
 }}
 
-<div class="d-flex mx-1 pb-2 position-relative">
+<div class="d-flex p-2 position-relative">
     {{#image}}
     <div class="rounded-circle mr-2 bg-cover d-inline-block flex-shrink-0"
     style="background-image: url('{{{.}}}'); height: 50px; width: 50px;;" ></div>
     {{/image}}
     <a href="{{{ config.wwwroot }}}/course/view.php?id={{{id}}}" class="stretched-link">{{{name}}}</a>
 </div>
+
+{{{ modssearch }}}
