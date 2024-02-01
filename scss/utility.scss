@@ -109,11 +109,6 @@
     background-color: $green;
 }
 
-/* Background gradiants - TODO mixin. */
-.bg-gradiant-blue-green {
-    background: linear-gradient(-135deg, $bright-blue 0%, $green 100%);
-}
-
 /* Text colors. */
 .text-yellow {
     color: $yellow !important;

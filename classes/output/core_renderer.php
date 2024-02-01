@@ -302,21 +302,17 @@ class theme_ucl_core_renderer extends theme_boost\output\core_renderer {
     public function modsearch(): string {
         global $COURSE;
 
-        // TODO - is there a better way to do this?
-        $format  = course_get_format($COURSE);
-        $numsections = $format->get_last_section_number();
-
-        if (empty($numsections)) {
+        $modinfo = get_fast_modinfo($COURSE->id);
+        $sections = $modinfo->get_section_info_all();
+        if (empty($sections)) {
             return ''; // No sections, bye!.
         }
-
-        $modinfo = get_fast_modinfo($COURSE->id);
 
         $template = new stdClass();
 
         foreach ($modinfo->get_cms() as $cm) {
             // Module outside of number of sections.
-            if ($cm->sectionnum > $numsections) {
+            if ($cm->sectionnum > $sections) {
                 continue; // Module outside of number of sections.
             }
 
