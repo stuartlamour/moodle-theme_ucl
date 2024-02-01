@@ -86,6 +86,8 @@ $navbar-height: 72px; // Moodle needs this in px for drawers, but we overwrite w
 $course-content-maxwidth: 1140px;
 $h5p-content-maxwidth: 1140px;
 
+$dropdown-link-active-bg: $primary;
+
 /* Borders. */
 $border-radius: 0;
 $border-radius-lg: $border-radius;
