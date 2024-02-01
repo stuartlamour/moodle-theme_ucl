@@ -82,7 +82,7 @@ $activity-icon-colors: map-merge(
 );
 
 /* Moodle vars. */
-$navbar-height: 72px; // Moodle needs this in px for drawers, but we overwrite with rem in navbar.scss for responsive design.
+$navbar-height: 0px; // Moodle needs this in px for drawers, but we overwrite with rem in navbar.scss for responsive design.
 $course-content-maxwidth: 1140px;
 $h5p-content-maxwidth: 1140px;
 

@@ -1,0 +1,14 @@
+/*
+* Tables.
+*/
+
+// Make large tables full width and scrollable.
+.gradeparent {
+    @extend .full-width;
+    overflow: show;
+
+    // Overwrite top, as navbar is not fixed in UCL theme.
+    .path-grade-report-grader .gradeparent tr.heading {
+        top: 0;
+    }
+}
