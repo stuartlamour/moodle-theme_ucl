@@ -1,13 +1,34 @@
+{{!
+    This file is part of Moodle - http://moodle.org/
+
+    Moodle is free software: you can redistribute it and/or modify
+    it under the terms of the GNU General Public License as published by
+    the Free Software Foundation, either version 3 of the License, or
+    (at your option) any later version.
+
+    Moodle is distributed in the hope that it will be useful,
+    but WITHOUT ANY WARRANTY; without even the implied warranty of
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+    GNU General Public License for more details.
+
+    You should have received a copy of the GNU General Public License
+    along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
+}}
+{{!
+    @template theme_ucl/course-search-mods
+}}
+
 <div class="p-3 bg-light">
-
-
-
+    {{! Search form. }}
     <label for="ucl-incourse-search">Search course</label>
     <input id="ucl-incourse-search" class="form-control" placeholder="Search course" autocomplete="off">
+
+    {{! Search status for screen reader. }}
     <div role="status" aria-live="assertive" aria-relevant="additions">
         <div id="ucl-incourse-search-count" class="sr-only"></div>
     </div>
 
+    {{! Search autocomplete. }}
     <div class="position-relative">
         <div id="ucl-incourse-search-list" class="bg-white mt-1 position-absolute" style="width: 100%; z-index: 999;">
         {{#mods}}
@@ -24,7 +45,6 @@
         {{/mods}}
         </div>
     </div>
-
 </div>
 
 {{#js}}
@@ -45,6 +65,7 @@ require(['jquery'], function($) {
         }
         else {
             $('.ucl-incourse-search-mod').addClass('d-none').removeClass('d-block');
+            $('#ucl-incourse-search-count').text();
         }
 
         let results = $('.ucl-incourse-search-mod:visible').length;

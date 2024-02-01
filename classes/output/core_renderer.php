@@ -336,7 +336,7 @@ class theme_ucl_core_renderer extends theme_boost\output\core_renderer {
             if ($cm->modname !== 'resource') {
                 $mod->srinfo = get_string('pluginname', $cm->modname);
             }
-            $mod->url = new moodle_url($cm->url, array('forceview' => 1));
+            $mod->url = new moodle_url($cm->url, ['forceview' => 1]);
             $mod->sectionname = get_section_name($COURSE->id, $cm->sectionnum);
             $mod->formattedname = $cm->get_formatted_name();
             $template->mods[] = $mod;
