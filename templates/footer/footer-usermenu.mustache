@@ -18,15 +18,23 @@
     @template theme_ucl/footer/footer-usermenu
 }}
 
-<div class="col-12 col-lg-4 col-md-6">
-    <h2 class="text-yellow">{{{ fullname }}}</h2>
-    <ul class="list-unstyled">
-        <li><a href="{{ config.wwwroot }}/my/courses.php">Courses</a></li>
-        <li><a href="{{ config.wwwroot }}/calendar/">Calendar</a></li>
-        <li><a href="{{ config.wwwroot }}/mod/forum/user.php">Forum posts</a></li>
-        <li><a href="{{ config.wwwroot }}/grade/report/overview/index.php">Grades</a></li>
-        <li><a href="{{ config.wwwroot }}/user/preferences.php">Preferences</a></li>
-        <li><a href="{{ config.wwwroot }}/user/profile.php">Profile</a></li>
+<div class="row">
+    <div class="col-4">
+        <h1 class="text-yellow">{{{ fullname }}}</h1>
+    </div>
+    <div class="col-8 text-right pt-3">
+        <ul class="list-unstyled list-inline">
+            <li class="list-inline-item"><a href="{{ config.wwwroot }}/my/courses.php">Courses</a></li>
+            <li class="list-inline-item"><a href="{{ config.wwwroot }}/calendar/">Calendar</a></li>
+            <li class="list-inline-item"><a href="{{ config.wwwroot }}/mod/forum/user.php">Forum posts</a></li>
+            <li class="list-inline-item"><a href="{{ config.wwwroot }}/grade/report/overview/index.php">Grades</a></li>
+            <!--
+            <li class="list-inline-item"><a href="{{ config.wwwroot }}/user/preferences.php">Preferences</a></li>
+            -->
+            <li class="list-inline-item"><a href="{{ config.wwwroot }}/user/profile.php">Profile</a></li>
 
-    </ul>
+        </ul>
+    </div>
 </div>
+
+
