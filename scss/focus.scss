@@ -1,8 +1,13 @@
+/*
+* UCL focus and accesability.
+*/
+
 /* Focus. */
 body div#page *:not(.btn):focus-visible,
 body #ucl-navbar *:focus-visible {
     outline: 2px solid currentColor;
 }
+
 /* Mouse click. */
 a:not(.btn):focus:not(:focus-visible) {
     outline: none !important;
@@ -11,7 +16,7 @@ a:not(.btn):focus:not(:focus-visible) {
     color: $link-hover-color;
 }
 
-/* TODO - turn off nasty moodle focus things...*/
+/* Turn off bad moodle focus things... */
 [role="button"]:focus,
 a.dropdown-toggle:focus,
 a:not([class]):focus,
@@ -26,4 +31,21 @@ a:focus,
 /* Screen reader only focusable. */
 div#page .sr-only:focus-visible {
     background-color: white;
+}
+
+/* Better button focus. */
+.btn,
+#collapsesections {
+    &:focus {
+        outline: 0;
+        box-shadow: none;
+    }
+    &:focus-visible {
+        border-color: white;
+        outline: 2px solid black;
+    }
+}
+
+.btn-outline-secondary {
+    color: $dark;
 }

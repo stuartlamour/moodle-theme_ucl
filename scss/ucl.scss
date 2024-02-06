@@ -17,6 +17,9 @@
 // Import boost scss.
 @import "moodle";
 
+// Boostrap (to overwrite moodle?)
+@import "bootstrap/_buttons.scss";
+
 // Import ucl scss.
 @import "layout.scss";
 @import "utility.scss";
@@ -30,6 +33,7 @@
 @import "cookies.scss";
 @import "focus.scss";
 @import "tables.scss";
+@import "alerts.scss";
 
 // Blocks.
 @import "block_myoverview.scss";
@@ -43,5 +47,3 @@
 @import "course.scss";
 @import "login.scss";
 
-// Boostrap (to overwrite moodle?)
-@import "bootstrap/_buttons.scss"

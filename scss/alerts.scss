@@ -1,0 +1,23 @@
+/*
+* UCL alerts.
+*/
+
+// Text and link styles for accessibility.
+.alert {
+    color: $body-color !important;
+
+    a {
+        text-decoration: underline;
+        color: $body-color !important;
+    }
+}
+
+// Reduce bg color for accessibility.
+@each $color, $value in $theme-colors {
+    .alert-#{$color} {
+        border: none; // Remove defaults.
+        border-top: 2px solid $value;
+        background-color: rgba(theme-color-level($color, $alert-bg-level), .3);
+    }
+}
+
