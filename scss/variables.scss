@@ -19,11 +19,6 @@ $util-red:      #DC2626;
 $util-dark:     #1a1a1a;
 
 /* Bootstrap vars. */
-$body-color: $util-dark;
-$headings-color: $body-color;
-$link-color: $primary;
-$link-hover-color: darken($primary, 15%);
-
 $primary:   $util-blue;
 $secondary: #e6e6e6;
 $success:   $util-green;
@@ -42,6 +37,11 @@ $theme-colors: map-merge((
     warning: $warning,
     danger: $danger,
 ), $theme-colors);
+
+$body-color: $util-dark;
+$headings-color: $body-color;
+$link-color: $primary;
+$link-hover-color: darken($primary, 15%);
 
 /* Moodle activity icons. */
 $assessment:    $pink;

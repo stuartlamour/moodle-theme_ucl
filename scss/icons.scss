@@ -2,20 +2,21 @@
 
 /* Filters to colour icons. */
 .f-content {
-    filter: invert(27%) sepia(79%) saturate(6432%) hue-rotate(201deg) brightness(96%) contrast(101%) !important; // Primary.
+    filter: invert(23%) sepia(92%) saturate(1970%) hue-rotate(198deg) brightness(99%) contrast(102%) !important; // Primary blue.
 }
 
 .f-communication {
-    filter: invert(30%) sepia(73%) saturate(1580%) hue-rotate(148deg) brightness(107%) contrast(100%) !important; // Teal.
+    filter: invert(54%) sepia(25%) saturate(6685%) hue-rotate(146deg) brightness(101%) contrast(77%) !important; // UCL vibrant blue.
 }
 
 .f-assessment {
-    filter: invert(49%) sepia(27%) saturate(6311%) hue-rotate(331deg) brightness(102%) contrast(104%) !important; // Salmon.
+    filter: invert(12%) sepia(97%) saturate(3391%) hue-rotate(320deg) brightness(93%) contrast(94%) !important; // UCL pink.
 
 }
 
 .f-collaboration {
-    filter: invert(56%) sepia(54%) saturate(1275%) hue-rotate(0deg) brightness(103%) contrast(105%) !important; // Orange.
+    filter: invert(53%) sepia(96%) saturate(392%) hue-rotate(72deg) brightness(88%) contrast(81%) !important; // UCL green.
+
 }
 
 /* Standard icons. */
@@ -41,8 +42,7 @@
     }
 
     &.content {
-        .activityicon,
-        .icon {
+        img {
             /* Content mods can have coloured icons (others cannot so far...) */
             &:not(.nofilter) {
                 @extend .f-content;
@@ -51,16 +51,14 @@
     }
 
     &.communication {
-        .activityicon,
-        .icon {
+        img {
             @extend .f-communication;
         }
 
     }
 
     &.assessment {
-        .activityicon,
-        .icon {
+        img {
             @extend .f-assessment;
         }
 
@@ -68,8 +66,7 @@
 
     &.collaboration,
     &.administration {
-        .activityicon,
-        .icon {
+        img {
             @extend .f-collaboration;
         }
     }

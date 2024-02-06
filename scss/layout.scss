@@ -96,4 +96,10 @@ body {
     border: 1px solid $primary !important;
 }
 
+// Highlight text searched for.
+.highlight {
+    color: $dark;
+    background-color: $yellow;
+}
+
 
