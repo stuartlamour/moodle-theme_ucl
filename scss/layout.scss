@@ -61,9 +61,11 @@ body {
 
 /* Breadcrumb. */
 #page-navbar {
-    position: sticky;
-    top: 0;
-    z-index: 100;
+    @include media-breakpoint-up(lg) {
+        position: sticky;
+        top: 0;
+        z-index: 100;
+    }
     .breadcrumb:not(:empty) {
         background-color: white;
         padding: 1rem 0;
