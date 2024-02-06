@@ -40,7 +40,7 @@
         /* Use btn-link for filter buttons. */
         .btn-outline-secondary {
             @extend .btn-link;
-            color: $primary !important;
+            color: $link-color !important;
             border-color: transparent !important;
             background-color: transparent !important;
         }

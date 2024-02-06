@@ -17,7 +17,7 @@
     .alert-#{$color} {
         border: none; // Remove defaults.
         border-top: 2px solid $value;
-        background-color: rgba(theme-color-level($color, $alert-bg-level), .3);
+        background-color: rgba(theme-color-level($color, $alert-bg-level), .4);
     }
 }
 
