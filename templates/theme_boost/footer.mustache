@@ -22,7 +22,7 @@
 
 <footer id="ucl-footer" class="bg-dark py-5 d-print-none">
     <div class="container">
-        <div class="row pb-5">
+        <div class="row">
             <div class="col my-3">
                 <img style="height: 3.5rem;"  alt="" src="{{ config.wwwroot }}/theme/ucl/pix/headerlogo.svg">
             </div>
@@ -30,8 +30,13 @@
             {{> theme_ucl/footer/footer-search }}
         </div>
 
-        <div class="row">
-            {{{ output.footerusermenu }}}
+        <hr class="bg-white">
+
+        {{{ output.footerusermenu }}}
+
+        <hr class="bg-white">
+
+        <div class="row py-3">
             {{{ output.footer_content }}}
         </div>
 

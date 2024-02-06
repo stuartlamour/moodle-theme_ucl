@@ -1,11 +1,11 @@
 <div id="ucl-footer-search" class="col-md-4 text-right">
-    <form id="ucl-footer-search-form" {{! role="search" }} method="get" accept-charset="utf-8">
+    <form id="ucl-footer-search-form" class="pb-2" method="get" accept-charset="utf-8">
         <fieldset>
             <legend class="text-left h5">Search UCL Moodle</legend>
             <div class="input-group py-2">
 
                 <label for="ucl-footer-search-input" class="sr-only">Search term</label>
-                <input id="ucl-footer-search-input" type="text" name="q" placeholder="Search" class="form-control text-body" required>
+                <input id="ucl-footer-search-input" type="text" name="q" placeholder="Search term" class="form-control text-body" required>
 
                 <label for="ucl-footer-search-select" class="sr-only">Search area</label>
                 <select id="ucl-footer-search-select" class="btn btn-warning text-dark text-left custom-select" required>
@@ -17,13 +17,15 @@
             </div>
             <div id="ucl-footer-search-form-submit">
 
-                <button id="ucl-footer-search-all" type="submit" formaction="{{ config.wwwroot }}/search/index.php"  class="btn btn-warning text-dark d-none" disabled >Submit</button>
+                <button id="ucl-footer-search-all" type="submit" formaction="{{ config.wwwroot }}/search/index.php"  class="btn btn-warning text-dark d-none" disabled >Search</button>
 
-                <button id="ucl-footer-search-course" type="submit" formaction="{{ config.wwwroot }}/course/search.php"  class="btn btn-warning text-dark d-none" disabled >Submit</button>
+                <button id="ucl-footer-search-course" type="submit" formaction="{{ config.wwwroot }}/course/search.php"  class="btn btn-warning text-dark d-none" disabled >Search</button>
 
             </div>
         </fieldset>
     </form>
+
+    <a href="{{ config.wwwroot }}/moodle43/course/"><i class="fa-solid fa-circle-arrow-right mr-2"></i>Browse all courses</a>
 </div>
 
 {{#js}}
