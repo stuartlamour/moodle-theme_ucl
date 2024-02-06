@@ -35,12 +35,13 @@ div#page .sr-only:focus-visible {
 
 /* Better button focus. */
 .btn,
-#collapsesections {
+#collapsesections.section-collapsemenu[role=button] {
     &:focus {
         outline: 0;
         box-shadow: none;
     }
-    &:focus-visible {
+    &:focus-visible,
+    &:focus:focus-visible {
         border-color: white;
         outline: 2px solid black;
     }
