@@ -92,6 +92,30 @@
     }
 }
 
+/* In course search. */
+#ucl-incourse-search-list {
+    border: 2px solid var(--light);
+    box-shadow: 3px 10px 10px -6px rgba(172, 20, 90, 0.5);
+    .ucl-incourse-search-mod {
+        &:focus,
+        &:focus-visible,
+        &:hover {
+            background-color: var(--primary);
+            color: white !important;
+            text-decoration: none;
+
+            .text-muted {
+                color: white !important;
+            }
+
+            img {
+                filter: brightness(0) invert(1);
+                opacity: 1 !important;
+            }
+        }
+    }
+}
+
 /* In course mod pages. */
 .path-mod {
     /* Add back activity header bg color. */
